@@ -1,26 +1,34 @@
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import CLEARSection from '@/components/CLEARSection';
-import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Play, FileText, Video } from 'lucide-react';
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import CLEARSection from "@/components/CLEARSection";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Play, FileText, Video } from "lucide-react";
 
 export default function CLEAR() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
       <main className="flex-1 pt-20">
-        <div className="py-16 bg-gradient-to-b from-primary/5 to-background">
+        <div className="pt-16 bg-gradient-to-b from-primary/5 to-background">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-            <h1 className="text-5xl sm:text-6xl font-bold">
-              Технология{' '}
+            <h2 className="text-4xl sm:text-5xl font-bold">
+              Технология{" "}
               <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
                 CLEAR
               </span>
-            </h1>
-            <p className="text-2xl text-muted-foreground max-w-4xl mx-auto">
-              Corneal Lenticule Extraction for Advanced Refractive Correction
-            </p>
+            </h2>
+            <div className="space-y-2">
+              <p className="text-xl text-muted-foreground">
+                <strong>C</strong>orneal <strong>L</strong>enticule{" "}
+                <strong>E</strong>xtraction for <strong>A</strong>dvanced{" "}
+                <strong>R</strong>efractive Correction
+              </p>
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+                Совершенно новое запатентованное приложение для лечения
+                близорукости и астигматизма
+              </p>
+            </div>
           </div>
         </div>
 
@@ -29,12 +37,19 @@ export default function CLEAR() {
         <section className="py-24" data-testid="section-resources">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold mb-4">Дополнительные материалы</h2>
-              <p className="text-muted-foreground">Видео, документация и ресурсы о технологии CLEAR</p>
+              <h2 className="text-4xl font-bold mb-4">
+                Дополнительные материалы
+              </h2>
+              <p className="text-muted-foreground">
+                Видео, документация и ресурсы о технологии CLEAR
+              </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-6">
-              <Card className="p-6 hover-elevate transition-all cursor-pointer" data-testid="card-video">
+              <Card
+                className="p-6 hover-elevate transition-all cursor-pointer"
+                data-testid="card-video"
+              >
                 <div className="space-y-4">
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
                     <Video className="w-6 h-6 text-primary" />
@@ -50,7 +65,10 @@ export default function CLEAR() {
                 </div>
               </Card>
 
-              <Card className="p-6 hover-elevate transition-all cursor-pointer" data-testid="card-docs">
+              <Card
+                className="p-6 hover-elevate transition-all cursor-pointer"
+                data-testid="card-docs"
+              >
                 <div className="space-y-4">
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
                     <FileText className="w-6 h-6 text-primary" />
@@ -66,7 +84,10 @@ export default function CLEAR() {
                 </div>
               </Card>
 
-              <Card className="p-6 hover-elevate transition-all cursor-pointer" data-testid="card-locations">
+              <Card
+                className="p-6 hover-elevate transition-all cursor-pointer"
+                data-testid="card-locations"
+              >
                 <div className="space-y-4">
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
                     <span className="text-2xl">🏥</span>

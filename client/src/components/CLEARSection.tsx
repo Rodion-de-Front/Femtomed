@@ -1,39 +1,24 @@
-import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Check, ArrowRight } from 'lucide-react';
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Check, ArrowRight } from "lucide-react";
 
 export default function CLEARSection() {
   const benefits = [
-    'Возможность изменения позиции лентикулы после докинга',
-    'Надежный вакуум, известный в системах Ziemer',
-    'Направляющие тоннели для более легкого отделения лентикулы',
-    'Свободно программируемые разрезы',
-    'Использование интраоперационного ОКТ (по желанию)',
-    'Уникальная траектория сканирования',
-    'Концепция низкой энергии FEMTO LDV'
+    "Возможность изменения позиции лентикулы после докинга",
+    "Надежный вакуум, известный в системах Ziemer",
+    "Направляющие тоннели для более легкого отделения лентикулы",
+    "Свободно программируемые разрезы",
+    "Использование интраоперационного ОКТ (по желанию)",
+    "Уникальная траектория сканирования",
+    "Концепция низкой энергии FEMTO LDV",
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-b from-background to-muted/30" data-testid="section-clear">
+    <section
+      className="py-24 bg-gradient-to-b from-background to-muted/30"
+      data-testid="section-clear"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 space-y-4">
-          <h2 className="text-4xl sm:text-5xl font-bold">
-            Технология{' '}
-            <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-              CLEAR
-            </span>
-          </h2>
-          <div className="space-y-2">
-            <p className="text-xl text-muted-foreground">
-              <strong>C</strong>orneal <strong>L</strong>enticule <strong>E</strong>xtraction for{' '}
-              <strong>A</strong>dvanced <strong>R</strong>efractive Correction
-            </p>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Совершенно новое запатентованное приложение для лечения близорукости и астигматизма
-            </p>
-          </div>
-        </div>
-
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <Card className="p-8 space-y-6">
             <h3 className="text-2xl font-bold">Преимущества технологии</h3>
@@ -57,10 +42,13 @@ export default function CLEARSection() {
           <div className="space-y-6">
             <Card className="p-8 bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20">
               <div className="space-y-4">
-                <h3 className="text-2xl font-bold">Интегрированная платформа</h3>
+                <h3 className="text-2xl font-bold">
+                  Интегрированная платформа
+                </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  CLEAR является интегрированной частью платформы FEMTO LDV Z8 и может быть приобретена
-                  путем обновления программного обеспечения
+                  CLEAR является интегрированной частью платформы FEMTO LDV Z8 и
+                  может быть приобретена путем обновления программного
+                  обеспечения
                 </p>
                 <div className="pt-4">
                   <Button className="group" data-testid="button-clear-details">
@@ -74,11 +62,15 @@ export default function CLEARSection() {
             <div className="grid grid-cols-2 gap-4">
               <Card className="p-6 text-center">
                 <div className="text-3xl font-bold text-primary mb-2">2</div>
-                <div className="text-sm text-muted-foreground">Направляющих разреза для начинающих</div>
+                <div className="text-sm text-muted-foreground">
+                  Направляющих разреза для начинающих
+                </div>
               </Card>
               <Card className="p-6 text-center">
                 <div className="text-3xl font-bold text-primary mb-2">1</div>
-                <div className="text-sm text-muted-foreground">Направляющий разрез для опытных</div>
+                <div className="text-sm text-muted-foreground">
+                  Направляющий разрез для опытных
+                </div>
               </Card>
             </div>
           </div>

@@ -1,12 +1,28 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone, Mail } from "lucide-react";
+
+const navLinks = [
+  { href: "/", label: "Главная" },
+  { href: "/about", label: "О нас" },
+  { href: "/clear", label: "CLEAR" },
+  { href: "/products", label: "Продукты" },
+  { href: "/news", label: "Новости" },
+  { href: "/vision-test", label: "Тест зрения" },
+  { href: "/contacts", label: "Контакты" },
+];
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [location] = useLocation();
+  const [indicatorStyle, setIndicatorStyle] = useState({
+    left: 0,
+    width: 0,
+    opacity: 0,
+  });
+  const navRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,15 +32,41 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = [
-    { href: "/", label: "Главная" },
-    { href: "/about", label: "О нас" },
-    { href: "/clear", label: "CLEAR" },
-    { href: "/products", label: "Продукты" },
-    { href: "/news", label: "Новости" },
-    { href: "/vision-test", label: "Тест зрения" },
-    { href: "/contacts", label: "Контакты" },
-  ];
+  useEffect(() => {
+    const updateIndicator = () => {
+      const activeIndex = navLinks.findIndex((link) => link.href === location);
+      if (activeIndex !== -1 && navRefs.current[activeIndex]) {
+        const activeElement = navRefs.current[activeIndex];
+        const navContainer = activeElement?.closest("nav");
+        if (activeElement && navContainer) {
+          const containerRect = navContainer.getBoundingClientRect();
+          const elementRect = activeElement.getBoundingClientRect();
+          setIndicatorStyle({
+            left: elementRect.left - containerRect.left,
+            width: elementRect.width,
+            opacity: 1,
+          });
+        }
+      } else {
+        setIndicatorStyle((prev) => ({ ...prev, opacity: 0 }));
+      }
+    };
+
+    // Двойной requestAnimationFrame для более точного обновления после рендера
+    let rafId2: number;
+    const rafId1 = requestAnimationFrame(() => {
+      rafId2 = requestAnimationFrame(() => {
+        updateIndicator();
+      });
+    });
+
+    window.addEventListener("resize", updateIndicator);
+    return () => {
+      cancelAnimationFrame(rafId1);
+      if (rafId2) cancelAnimationFrame(rafId2);
+      window.removeEventListener("resize", updateIndicator);
+    };
+  }, [location]);
 
   return (
     <header
@@ -44,20 +86,47 @@ export default function Header() {
           </Link>
 
           <nav
-            className="hidden lg:flex items-center gap-1"
+            className="hidden lg:flex items-center gap-1 relative"
             data-testid="nav-desktop"
           >
-            {navLinks.map((link) => (
+            {navLinks.map((link, index) => (
               <Link key={link.href} href={link.href}>
                 <Button
-                  variant={location === link.href ? "secondary" : "ghost"}
-                  className="font-medium"
+                  ref={(el) => {
+                    navRefs.current[index] = el;
+                  }}
+                  variant="ghost"
+                  className={`font-medium transition-colors no-default-hover-elevate ${
+                    location === link.href ? "text-primary" : "text-foreground"
+                  } hover:!bg-transparent hover:!shadow-none hover:!scale-100 active:!bg-transparent active:!shadow-none active:!scale-100`}
+                  style={{
+                    backgroundColor: "transparent",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = "transparent";
+                    e.currentTarget.style.boxShadow = "none";
+                    e.currentTarget.style.transform = "scale(1)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = "transparent";
+                    e.currentTarget.style.boxShadow = "none";
+                    e.currentTarget.style.transform = "scale(1)";
+                  }}
                   data-testid={`link-${link.label.toLowerCase()}`}
                 >
                   {link.label}
                 </Button>
               </Link>
             ))}
+            <div
+              className="absolute bottom-0 h-1 bg-primary transition-all duration-500 ease-in-out rounded-full shadow-sm"
+              style={{
+                left: `${indicatorStyle.left}px`,
+                width: `${indicatorStyle.width}px`,
+                opacity: indicatorStyle.opacity,
+                transform: "translateY(0)",
+              }}
+            />
           </nav>
 
           <div className="hidden lg:flex items-center gap-2">
@@ -97,8 +166,12 @@ export default function Header() {
             {navLinks.map((link) => (
               <Link key={link.href} href={link.href}>
                 <Button
-                  variant={location === link.href ? "secondary" : "ghost"}
-                  className="w-full justify-start"
+                  variant="ghost"
+                  className={`w-full justify-start transition-colors no-default-hover-elevate ${
+                    location === link.href
+                      ? "text-primary bg-primary/10"
+                      : "text-foreground"
+                  } hover:bg-transparent`}
                   onClick={() => setIsMobileMenuOpen(false)}
                   data-testid={`link-mobile-${link.label.toLowerCase()}`}
                 >
