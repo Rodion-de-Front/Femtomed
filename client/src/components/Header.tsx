@@ -97,7 +97,9 @@ export default function Header() {
                   }}
                   variant="ghost"
                   className={`font-medium transition-colors no-default-hover-elevate ${
-                    location === link.href ? "text-primary" : "text-foreground"
+                    location === link.href
+                      ? "text-primary"
+                      : "text-foreground hover:text-primary"
                   } hover:!bg-transparent hover:!shadow-none hover:!scale-100 active:!bg-transparent active:!shadow-none active:!scale-100`}
                   style={{
                     backgroundColor: "transparent",
@@ -106,6 +108,9 @@ export default function Header() {
                     e.currentTarget.style.backgroundColor = "transparent";
                     e.currentTarget.style.boxShadow = "none";
                     e.currentTarget.style.transform = "scale(1)";
+                    if (location !== link.href) {
+                      e.currentTarget.style.color = "";
+                    }
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.backgroundColor = "transparent";
@@ -170,8 +175,8 @@ export default function Header() {
                   className={`w-full justify-start transition-colors no-default-hover-elevate ${
                     location === link.href
                       ? "text-primary bg-primary/10"
-                      : "text-foreground"
-                  } hover:bg-transparent`}
+                      : "text-foreground hover:text-primary"
+                  } hover:!bg-transparent`}
                   onClick={() => setIsMobileMenuOpen(false)}
                   data-testid={`link-mobile-${link.label.toLowerCase()}`}
                 >
