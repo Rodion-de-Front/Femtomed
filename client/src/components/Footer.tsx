@@ -17,7 +17,7 @@ export default function Footer() {
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold">Продукты</h3>
+            <h3 className="font-semibold">Оборудование</h3>
             <nav className="flex flex-col gap-2">
               <Link href="/products">
                 <Button

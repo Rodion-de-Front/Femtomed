@@ -1,78 +1,84 @@
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import ProductCard from '@/components/ProductCard';
-import femtoImage from '@assets/generated_images/FEMTO_LDV_laser_system_ef76a057.png';
-import galileiImage from '@assets/generated_images/GALILEI_diagnostic_device_2aba34c6.png';
-import eyeVizImage from '@assets/generated_images/Eye_diagnostic_visualization_f0bad5c6.png';
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import ProductCard from "@/components/ProductCard";
+import femtoImage from "@assets/generated_images/FEMTO_LDV_laser_system_ef76a057.png";
+import galileiImage from "@assets/generated_images/GALILEI_diagnostic_device_2aba34c6.png";
+import eyeVizImage from "@assets/generated_images/Eye_diagnostic_visualization_f0bad5c6.png";
 
 export default function Products() {
   const products = [
     {
-      title: 'FEMTO LDV Z8',
-      description: 'Фемтосекундный лазер нового поколения с технологией низкой энергии для рефракционной хирургии и катаракты',
+      title: "FEMTO LDV Z8",
+      description:
+        "Фемтосекундный лазер нового поколения с технологией низкой энергии для рефракционной хирургии и катаракты",
       image: femtoImage,
       features: [
-        'Концепция низкой энергии',
-        'Интраоперационный ОКТ',
-        'Программируемые разрезы',
-        'Поддержка CLEAR технологии'
-      ]
+        "Концепция низкой энергии",
+        "Интраоперационный ОКТ",
+        "Программируемые разрезы",
+        "Поддержка CLEAR технологии",
+      ],
     },
     {
-      title: 'GALILEI G6',
-      description: 'Передовая диагностическая платформа для полного анализа роговицы и переднего сегмента глаза',
+      title: "GALILEI G6",
+      description:
+        "Передовая диагностическая платформа для полного анализа роговицы и переднего сегмента глаза",
       image: galileiImage,
       features: [
-        'Двойная система Scheimpflug',
-        'Топография роговицы',
-        'Пахиметрия',
-        'Анализ переднего сегмента'
-      ]
+        "Двойная система Scheimpflug",
+        "Топография роговицы",
+        "Пахиметрия",
+        "Анализ переднего сегмента",
+      ],
     },
     {
-      title: 'AQUARIUZ',
-      description: 'Инновационная система для точной и эффективной рефракционной хирургии',
+      title: "AQUARIUZ",
+      description:
+        "Инновационная система для точной и эффективной рефракционной хирургии",
       image: eyeVizImage,
       features: [
-        'Бесшумная работа',
-        'Высокая точность',
-        'Эргономичный дизайн',
-        'Быстрая процедура'
-      ]
+        "Бесшумная работа",
+        "Высокая точность",
+        "Эргономичный дизайн",
+        "Быстрая процедура",
+      ],
     },
     {
-      title: 'FLOWSUITE',
-      description: 'Программное обеспечение для планирования и управления офтальмологическими процедурами',
+      title: "FLOWSUITE",
+      description:
+        "Программное обеспечение для планирования и управления офтальмологическими процедурами",
       image: eyeVizImage,
       features: [
-        'Интуитивный интерфейс',
-        'Интеграция с оборудованием',
-        'Планирование процедур',
-        'Анализ данных'
-      ]
+        "Интуитивный интерфейс",
+        "Интеграция с оборудованием",
+        "Планирование процедур",
+        "Анализ данных",
+      ],
     },
     {
-      title: 'FERRARA RING',
-      description: 'Интракорнеальные кольцевые сегменты для коррекции кератоконуса',
+      title: "FERRARA RING",
+      description:
+        "Интракорнеальные кольцевые сегменты для коррекции кератоконуса",
       image: eyeVizImage,
       features: [
-        'Биосовместимый материал',
-        'Различные размеры',
-        'Обратимая процедура',
-        'Стабильные результаты'
-      ]
+        "Биосовместимый материал",
+        "Различные размеры",
+        "Обратимая процедура",
+        "Стабильные результаты",
+      ],
     },
     {
-      title: 'X-LINK',
-      description: 'Система для корнеального кросслинкинга при лечении кератоконуса',
+      title: "X-LINK",
+      description:
+        "Система для корнеального кросслинкинга при лечении кератоконуса",
       image: eyeVizImage,
       features: [
-        'Укрепление роговицы',
-        'Остановка прогрессирования',
-        'Безопасная процедура',
-        'Доказанная эффективность'
-      ]
-    }
+        "Укрепление роговицы",
+        "Остановка прогрессирования",
+        "Безопасная процедура",
+        "Доказанная эффективность",
+      ],
+    },
   ];
 
   return (
@@ -82,13 +88,14 @@ export default function Products() {
         <div className="py-16 bg-gradient-to-b from-primary/5 to-background">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
             <h1 className="text-5xl sm:text-6xl font-bold">
-              Наши{' '}
+              Наше{" "}
               <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-                продукты
+                оборудование
               </span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Передовое офтальмологическое оборудование для диагностики и лечения
+              Передовое офтальмологическое оборудование для диагностики и
+              лечения
             </p>
           </div>
         </div>

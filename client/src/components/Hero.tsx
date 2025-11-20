@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronsDown, Play } from "lucide-react";
 import { useEffect, useRef } from "react";
 import heroImage from "@assets/generated_images/Eye_surgery_procedure_room_ef9ff918.png";
+import { Link } from "wouter";
 
 export default function Hero() {
   const parallaxRef = useRef<HTMLDivElement>(null);
@@ -65,8 +66,9 @@ export default function Hero() {
               className="text-xl text-muted-foreground max-w-2xl leading-relaxed animate-in fade-in slide-in-from-bottom-4 duration-700"
               style={{ animationDelay: "600ms" }}
             >
-              Передовые фемтосекундные лазеры и диагностическое оборудование для
-              точной коррекции зрения
+              Эксклюзивный дистрибьютор Ziemer, предоставляющий современное
+              лазерное и диагностическое оборудование для точной коррекции
+              зрения
             </p>
           </div>
 
@@ -74,23 +76,27 @@ export default function Hero() {
             className="flex flex-col sm:flex-row gap-4 animate-in fade-in slide-in-from-bottom-4 duration-700"
             style={{ animationDelay: "700ms" }}
           >
-            <Button
-              size="lg"
-              className="group hover:scale-105 transition-all duration-300"
-              data-testid="button-learn-more"
-            >
-              Узнать больше
-              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform duration-300" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="backdrop-blur-sm hover:scale-105 transition-all duration-300"
-              data-testid="button-watch-video"
-            >
-              <Play className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform duration-300" />
-              Смотреть видео
-            </Button>
+            <Link href="/about">
+              <Button
+                size="lg"
+                className="group hover:scale-105 transition-all duration-300"
+                data-testid="button-learn-more"
+              >
+                Узнать больше
+                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform duration-300" />
+              </Button>
+            </Link>
+            <Link href="/about">
+              <Button
+                size="lg"
+                variant="outline"
+                className="backdrop-blur-sm hover:scale-105 transition-all duration-300"
+                data-testid="button-watch-video"
+              >
+                <Play className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform duration-300" />
+                Смотреть видео
+              </Button>
+            </Link>
           </div>
 
           <div
