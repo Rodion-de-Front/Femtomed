@@ -1,70 +1,82 @@
-import { useState } from 'react';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import NewsCard from '@/components/NewsCard';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { Search } from 'lucide-react';
-import conferenceImage from '@assets/generated_images/Medical_conference_event_8d1ad6c9.png';
+import { useState } from "react";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import NewsCard from "@/components/NewsCard";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Search } from "lucide-react";
+import conferenceImage from "@assets/generated_images/Medical_conference_event_8d1ad6c9.png";
 
 export default function News() {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
 
   const allNews = [
     {
-      title: 'Три портрета миопии в Красноярске',
-      date: '27 июня 2025',
-      location: 'Красноярск',
+      id: "tri-portreta-miopii-krasnoyarsk",
+      title: "Три портрета миопии в Красноярске",
+      date: "27 июня 2025",
+      location: "Красноярск",
       image: conferenceImage,
-      excerpt: 'Конференция в рамках познавательного проекта для офтальмологов и неврологов',
-      category: 'Конференция'
+      excerpt:
+        "Конференция в рамках познавательного проекта для офтальмологов и неврологов",
+      category: "Конференция",
     },
     {
-      title: 'Три портрета миопии в Калининграде',
-      date: '20 июня 2025',
-      location: 'Калининград',
+      id: "tri-portreta-miopii-kaliningrad",
+      title: "Три портрета миопии в Калининграде",
+      date: "20 июня 2025",
+      location: "Калининград",
       image: conferenceImage,
-      excerpt: 'Познавательный проект о современных подходах к диагностике и лечению миопии',
-      category: 'Конференция'
+      excerpt:
+        "Познавательный проект о современных подходах к диагностике и лечению миопии",
+      category: "Конференция",
     },
     {
-      title: 'Ерошевские чтения 2025',
-      date: '19-21 июня 2025',
-      location: 'Самара',
+      id: "erosh-evskie-chteniya-2025",
+      title: "Ерошевские чтения 2025",
+      date: "19-21 июня 2025",
+      location: "Самара",
       image: conferenceImage,
-      excerpt: 'Международная офтальмологическая конференция с участием ведущих специалистов',
-      category: 'Конференция'
+      excerpt:
+        "Международная офтальмологическая конференция с участием ведущих специалистов",
+      category: "Конференция",
     },
     {
-      title: 'Конференция ВОСТОК-ЗАПАД',
-      date: '29-30 мая 2025',
-      location: 'Москва',
+      id: "konferentsiya-vostok-zapad",
+      title: "Конференция ВОСТОК-ЗАПАД",
+      date: "29-30 мая 2025",
+      location: "Москва",
       image: conferenceImage,
-      excerpt: 'Международная конференция по офтальмологии в гибридном формате',
-      category: 'Конференция'
+      excerpt: "Международная конференция по офтальмологии в гибридном формате",
+      category: "Конференция",
     },
     {
-      title: 'Оренбургская конференция офтальмологов',
-      date: '23 мая 2025',
-      location: 'Оренбург',
+      id: "orenburgskaya-konferentsiya",
+      title: "Оренбургская конференция офтальмологов",
+      date: "23 мая 2025",
+      location: "Оренбург",
       image: conferenceImage,
-      excerpt: 'Юбилейная конференция, посвященная 35-летию Оренбургского филиала МНТК',
-      category: 'Конференция'
+      excerpt:
+        "Юбилейная конференция, посвященная 35-летию Оренбургского филиала МНТК",
+      category: "Конференция",
     },
     {
-      title: 'Офтальмогеронтология',
-      date: '15-16 мая 2025',
-      location: 'Москва',
+      id: "oftalmogerontologiya",
+      title: "Офтальмогеронтология",
+      date: "15-16 мая 2025",
+      location: "Москва",
       image: conferenceImage,
-      excerpt: 'V Международный научно-образовательный форум - инновационные решения проблем',
-      category: 'Конференция'
-    }
+      excerpt:
+        "V Международный научно-образовательный форум - инновационные решения проблем",
+      category: "Конференция",
+    },
   ];
 
-  const filteredNews = allNews.filter(news =>
-    news.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    news.location?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    news.excerpt.toLowerCase().includes(searchQuery.toLowerCase())
+  const filteredNews = allNews.filter(
+    (news) =>
+      news.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      news.location?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      news.excerpt.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
@@ -75,13 +87,14 @@ export default function News() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center space-y-6 mb-12">
               <h1 className="text-5xl sm:text-6xl font-bold">
-                Новости и{' '}
+                Новости и{" "}
                 <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
                   события
                 </span>
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Актуальные конференции, семинары и мероприятия в области офтальмологии
+                Актуальные конференции, семинары и мероприятия в области
+                офтальмологии
               </p>
             </div>
 

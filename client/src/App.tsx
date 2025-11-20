@@ -11,6 +11,7 @@ import AQUARIUZ from "@/pages/AQUARIUZ";
 import FLOWSUITE from "@/pages/FLOWSUITE";
 import Products from "@/pages/Products";
 import News from "@/pages/News";
+import NewsDetail from "@/pages/NewsDetail";
 import VisionTest from "@/pages/VisionTest";
 import Contacts from "@/pages/Contacts";
 import NotFound from "@/pages/not-found";
@@ -37,6 +38,7 @@ function Router() {
         <Route path="/flow-suite" component={FLOWSUITE} />
         <Route path="/products" component={Products} />
         <Route path="/news" component={News} />
+        <Route path="/news/:id" component={NewsDetail} />
         <Route path="/vision-test" component={VisionTest} />
         <Route path="/contacts" component={Contacts} />
         <Route component={NotFound} />

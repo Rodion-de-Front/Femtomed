@@ -75,6 +75,7 @@ export default function Home() {
 
   const news = [
     {
+      id: "tri-portreta-miopii-krasnoyarsk",
       title: "Три портрета миопии в Красноярске",
       date: "27 июня 2025",
       location: "Красноярск",
@@ -84,6 +85,7 @@ export default function Home() {
       category: "Конференция",
     },
     {
+      id: "erosh-evskie-chteniya-2025",
       title: "Ерошевские чтения 2025",
       date: "19-21 июня 2025",
       location: "Самара",
@@ -93,6 +95,7 @@ export default function Home() {
       category: "Конференция",
     },
     {
+      id: "konferentsiya-vostok-zapad",
       title: "Конференция ВОСТОК-ЗАПАД",
       date: "29-30 мая 2025",
       location: "Москва",
@@ -208,10 +211,12 @@ export default function Home() {
                 Актуальные конференции и мероприятия
               </p>
             </div>
-            <Button variant="ghost" data-testid="button-all-news">
-              Все новости
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </Button>
+            <Link href="/news">
+              <Button variant="ghost" data-testid="button-all-news">
+                Все новости
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </Link>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {news.map((item, idx) => (
