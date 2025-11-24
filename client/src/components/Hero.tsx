@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronsDown, Play } from "lucide-react";
 import { useEffect, useRef } from "react";
-import heroImage from "@assets/generated_images/Eye_surgery_procedure_room_ef9ff918.png";
 import { Link } from "wouter";
 
 export default function Hero() {
@@ -28,12 +27,12 @@ export default function Hero() {
         className="absolute inset-0 z-0 transition-transform duration-75"
         style={{ willChange: "transform" }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/70 z-10" />
-        <img
-          src={heroImage}
-          alt="Офтальмологическая хирургия"
-          className="w-full h-full object-cover"
-        />
+        <div className="w-full h-full flex items-center justify-center">
+          <h2 className="text-9xl sm:text-[12rem] lg:text-[16rem] font-bold bg-gradient-to-r from-primary/50 via-primary/40 to-primary/40 bg-clip-text text-transparent select-none translate-x-12">
+            ZIEMER
+          </h2>
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/60 z-10" />
       </div>
 
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">

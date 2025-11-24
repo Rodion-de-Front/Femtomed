@@ -1,31 +1,58 @@
-import { useState } from 'react';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
-import { Phone, Mail, MapPin, Send } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
+import { useState } from "react";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Phone, Mail, MapPin, Send } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
+import { apiRequest } from "@/lib/queryClient";
 
 export default function Contacts() {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    toast({
-      title: 'Спасибо за обращение!',
-      description: 'Мы свяжемся с вами в ближайшее время',
-    });
-    setFormData({ name: '', email: '', phone: '', message: '' });
+    setIsSubmitting(true);
+
+    try {
+      const response = await apiRequest("POST", "/api/contact", formData);
+      const result = await response.json();
+
+      if (result.success) {
+        toast({
+          title: "Спасибо за обращение!",
+          description: "Мы свяжемся с вами в ближайшее время",
+        });
+        setFormData({ name: "", email: "", phone: "", message: "" });
+      } else {
+        toast({
+          title: "Ошибка отправки",
+          description:
+            result.message || "Произошла ошибка при отправке сообщения",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error("Ошибка отправки формы:", error);
+      toast({
+        title: "Ошибка отправки",
+        description:
+          "Произошла ошибка при отправке сообщения. Попробуйте позже.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -35,13 +62,14 @@ export default function Contacts() {
         <div className="py-16 bg-gradient-to-b from-primary/5 to-background">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
             <h1 className="text-5xl sm:text-6xl font-bold">
-              Свяжитесь{' '}
+              Свяжитесь{" "}
               <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
                 с нами
               </span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Мы готовы ответить на ваши вопросы о продуктах и программе TRADE-IN
+              Мы готовы ответить на ваши вопросы о продуктах и программе
+              TRADE-IN
             </p>
           </div>
         </div>
@@ -51,7 +79,9 @@ export default function Contacts() {
             <div className="grid lg:grid-cols-2 gap-12">
               <div className="space-y-8">
                 <Card className="p-8">
-                  <h2 className="text-2xl font-bold mb-6">Отправьте нам сообщение</h2>
+                  <h2 className="text-2xl font-bold mb-6">
+                    Отправьте нам сообщение
+                  </h2>
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="space-y-2">
                       <Label htmlFor="name">Имя *</Label>
@@ -59,7 +89,9 @@ export default function Contacts() {
                         id="name"
                         required
                         value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        onChange={(e) =>
+                          setFormData({ ...formData, name: e.target.value })
+                        }
                         data-testid="input-name"
                       />
                     </div>
@@ -70,7 +102,9 @@ export default function Contacts() {
                         type="email"
                         required
                         value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        onChange={(e) =>
+                          setFormData({ ...formData, email: e.target.value })
+                        }
                         data-testid="input-email"
                       />
                     </div>
@@ -80,7 +114,9 @@ export default function Contacts() {
                         id="phone"
                         type="tel"
                         value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        onChange={(e) =>
+                          setFormData({ ...formData, phone: e.target.value })
+                        }
                         data-testid="input-phone"
                       />
                     </div>
@@ -91,13 +127,20 @@ export default function Contacts() {
                         required
                         rows={5}
                         value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        onChange={(e) =>
+                          setFormData({ ...formData, message: e.target.value })
+                        }
                         data-testid="input-message"
                       />
                     </div>
-                    <Button type="submit" className="w-full" data-testid="button-submit">
+                    <Button
+                      type="submit"
+                      className="w-full"
+                      data-testid="button-submit"
+                      disabled={isSubmitting}
+                    >
                       <Send className="w-4 h-4 mr-2" />
-                      Отправить
+                      {isSubmitting ? "Отправка..." : "Отправить"}
                     </Button>
                   </form>
                 </Card>
@@ -105,13 +148,18 @@ export default function Contacts() {
 
               <div className="space-y-6">
                 <Card className="p-8 bg-gradient-to-br from-primary/10 to-background border-primary/20">
-                  <h2 className="text-2xl font-bold mb-6">Программа TRADE-IN</h2>
+                  <h2 className="text-2xl font-bold mb-6">
+                    Программа TRADE-IN
+                  </h2>
                   <div className="space-y-4 text-muted-foreground">
                     <p className="leading-relaxed">
-                      Наша компания предлагает уникальную возможность покупки фемтосекундного лазера FEMTO LDV Z-серии по системе TRADE-IN.
+                      Наша компания предлагает уникальную возможность покупки
+                      фемтосекундного лазера FEMTO LDV Z-серии по системе
+                      TRADE-IN.
                     </p>
                     <p className="leading-relaxed">
-                      Вы сможете заменить старый фемтосекундный лазер на НОВЫЙ СОВРЕМЕННЫЙ фемтосекундный лазер с:
+                      Вы сможете заменить старый фемтосекундный лазер на НОВЫЙ
+                      СОВРЕМЕННЫЙ фемтосекундный лазер с:
                     </p>
                     <ul className="space-y-2">
                       <li className="flex items-start gap-2">
@@ -135,24 +183,34 @@ export default function Contacts() {
 
                 <div className="space-y-4">
                   <Card className="p-6 hover-elevate transition-all">
-                    <a href="tel:+79153526688" className="flex items-center gap-4">
+                    <a
+                      href="tel:+79153526688"
+                      className="flex items-center gap-4"
+                    >
                       <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                         <Phone className="w-5 h-5 text-primary" />
                       </div>
                       <div>
-                        <div className="text-sm text-muted-foreground">Телефон</div>
+                        <div className="text-sm text-muted-foreground">
+                          Телефон
+                        </div>
                         <div className="font-semibold">+7 (915) 352-66-88</div>
                       </div>
                     </a>
                   </Card>
 
                   <Card className="p-6 hover-elevate transition-all">
-                    <a href="mailto:office@femtomed.ru" className="flex items-center gap-4">
+                    <a
+                      href="mailto:office@femtomed.ru"
+                      className="flex items-center gap-4"
+                    >
                       <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                         <Mail className="w-5 h-5 text-primary" />
                       </div>
                       <div>
-                        <div className="text-sm text-muted-foreground">Email</div>
+                        <div className="text-sm text-muted-foreground">
+                          Email
+                        </div>
                         <div className="font-semibold">office@femtomed.ru</div>
                       </div>
                     </a>
@@ -164,7 +222,9 @@ export default function Contacts() {
                         <MapPin className="w-5 h-5 text-primary" />
                       </div>
                       <div>
-                        <div className="text-sm text-muted-foreground">Адрес</div>
+                        <div className="text-sm text-muted-foreground">
+                          Адрес
+                        </div>
                         <div className="font-semibold">Москва, Россия</div>
                       </div>
                     </div>

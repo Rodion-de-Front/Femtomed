@@ -5,6 +5,14 @@ import femtoImage from "@assets/generated_images/FEMTO_LDV_laser_system_ef76a057
 import galileiImage from "@assets/generated_images/GALILEI_diagnostic_device_2aba34c6.png";
 import eyeVizImage from "@assets/generated_images/Eye_diagnostic_visualization_f0bad5c6.png";
 
+// Функция для создания slug из названия
+function createSlug(title: string): string {
+  return title
+    .toLowerCase()
+    .replace(/\s+/g, "-")
+    .replace(/[^a-z0-9-]/g, "");
+}
+
 export default function Products() {
   const products = [
     {
@@ -104,7 +112,11 @@ export default function Products() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {products.map((product, idx) => (
-                <ProductCard key={idx} {...product} />
+                <ProductCard
+                  key={idx}
+                  {...product}
+                  slug={createSlug(product.title)}
+                />
               ))}
             </div>
           </div>
