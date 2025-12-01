@@ -1,11 +1,14 @@
+import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FLOWSUITESection from "@/components/FLOWSUITESection";
+import VideoModal from "@/components/VideoModal";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Play, FileText, Video } from "lucide-react";
+import { Play, FileText, Video, Download } from "lucide-react";
 
 export default function FLOWSUITE() {
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -43,7 +46,7 @@ export default function FLOWSUITE() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 gap-6 mb-8 max-w-3xl mx-auto">
               <Card
                 className="p-6 hover-elevate transition-all cursor-pointer"
                 data-testid="card-video"
@@ -56,7 +59,11 @@ export default function FLOWSUITE() {
                   <p className="text-sm text-muted-foreground">
                     Посмотреть видеоматериалы о системе FLOW SUITE
                   </p>
-                  <Button variant="ghost" className="w-full justify-start">
+                  <Button
+                    variant="ghost"
+                    className="w-full justify-start"
+                    onClick={() => setIsVideoModalOpen(true)}
+                  >
                     <Play className="w-4 h-4 mr-2" />
                     Смотреть
                   </Button>
@@ -65,39 +72,25 @@ export default function FLOWSUITE() {
 
               <Card
                 className="p-6 hover-elevate transition-all cursor-pointer"
-                data-testid="card-docs"
+                data-testid="card-brochure"
               >
                 <div className="space-y-4">
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
                     <FileText className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="text-xl font-semibold">Документация</h3>
+                  <h3 className="text-xl font-semibold">Брошюра</h3>
                   <p className="text-sm text-muted-foreground">
-                    Техническая документация и руководства
+                    Подробная информация о системе FLOW SUITE в формате PDF
                   </p>
-                  <Button variant="ghost" className="w-full justify-start">
-                    <FileText className="w-4 h-4 mr-2" />
-                    Читать
-                  </Button>
-                </div>
-              </Card>
-
-              <Card
-                className="p-6 hover-elevate transition-all cursor-pointer"
-                data-testid="card-locations"
-              >
-                <div className="space-y-4">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <span className="text-2xl">🏥</span>
-                  </div>
-                  <h3 className="text-xl font-semibold">
-                    Где используется FLOW SUITE
-                  </h3>
-                  <p className="text-sm text-muted-foreground">
-                    Список клиник, использующих технологию
-                  </p>
-                  <Button variant="ghost" className="w-full justify-start">
-                    Найти клинику
+                  <Button
+                    variant="ghost"
+                    className="w-full justify-start"
+                    onClick={() => {
+                      window.open("/pdf/FLOWSUITE.pdf", "_blank");
+                    }}
+                  >
+                    <Download className="w-4 h-4 mr-2" />
+                    Открыть брошюру
                   </Button>
                 </div>
               </Card>
@@ -106,6 +99,12 @@ export default function FLOWSUITE() {
         </section>
       </main>
       <Footer />
+      <VideoModal
+        open={isVideoModalOpen}
+        onOpenChange={setIsVideoModalOpen}
+        videoUrl="/videos/flowsuite_bg.mp4"
+        title="Видео о системе FLOW SUITE"
+      />
     </div>
   );
 }

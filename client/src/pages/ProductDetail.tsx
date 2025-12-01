@@ -6,7 +6,15 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
-import { ArrowLeft, Check, FileText, Video, Phone, Mail } from "lucide-react";
+import {
+  ArrowLeft,
+  Check,
+  FileText,
+  Video,
+  Phone,
+  Mail,
+  Download,
+} from "lucide-react";
 import femtoImage from "@assets/generated_images/FEMTO_LDV_laser_system_ef76a057.png";
 import galileiImage from "@assets/generated_images/GALILEI_diagnostic_device_2aba34c6.png";
 import eyeVizImage from "@assets/generated_images/Eye_diagnostic_visualization_f0bad5c6.png";
@@ -18,6 +26,7 @@ const productData: Record<
     title: string;
     category: string;
     image: string;
+    brochure: string;
     description: string;
     features: string[];
     specifications?: {
@@ -31,7 +40,8 @@ const productData: Record<
   "femto-ldv-z8": {
     title: "FEMTO LDV Z8",
     category: "Фемтосекундный лазер",
-    image: femtoImage,
+    image: "/images/products/FEMTO.png",
+    brochure: "/pdf/FEMTO.pdf",
     description:
       "Фемтосекундный лазер нового поколения с технологией низкой энергии для рефракционной хирургии и катаракты",
     features: [
@@ -68,7 +78,8 @@ const productData: Record<
   "galilei-g6": {
     title: "GALILEI G6",
     category: "Диагностическое оборудование",
-    image: galileiImage,
+    image: "/images/products/GALILEI.png",
+    brochure: "/pdf/GALILEI.pdf",
     description:
       "Передовая диагностическая платформа для полного анализа роговицы и переднего сегмента глаза",
     features: [
@@ -105,7 +116,8 @@ const productData: Record<
   aquariuz: {
     title: "AQUARIUZ",
     category: "Рефракционная хирургия",
-    image: eyeVizImage,
+    image: "/images/products/AQUARIUZ.png",
+    brochure: "/pdf/AQUARIUZ.pdf",
     description:
       "Инновационная система для точной и эффективной рефракционной хирургии",
     features: [
@@ -141,6 +153,7 @@ const productData: Record<
     title: "FLOWSUITE",
     category: "Программное обеспечение",
     image: eyeVizImage,
+    brochure: "/pdf/FLOWSUITE.pdf",
     description:
       "Программное обеспечение для планирования и управления офтальмологическими процедурами",
     features: [
@@ -177,6 +190,7 @@ const productData: Record<
     title: "FERRARA RING",
     category: "Интракорнеальные сегменты",
     image: eyeVizImage,
+    brochure: "/pdf/FERRARA_RING.pdf",
     description:
       "Интракорнеальные кольцевые сегменты для коррекции кератоконуса",
     features: [
@@ -212,6 +226,7 @@ const productData: Record<
     title: "X-LINK",
     category: "Кросслинкинг",
     image: eyeVizImage,
+    brochure: "/pdf/X-LINK.pdf",
     description:
       "Система для корнеального кросслинкинга при лечении кератоконуса",
     features: [
@@ -323,15 +338,14 @@ export default function ProductDetail() {
           className="relative py-20 bg-gradient-to-b from-primary/5 to-background overflow-hidden"
         >
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <Link href="/products">
-              <Button
-                variant="ghost"
-                className="mb-8 hover-elevate transition-all"
-              >
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Назад к оборудованию
-              </Button>
-            </Link>
+            <Button
+              variant="ghost"
+              className="mb-8 hover-elevate transition-all"
+              onClick={() => window.history.back()}
+            >
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Назад
+            </Button>
 
             <div className="space-y-6">
               {product.category && (
@@ -364,7 +378,7 @@ export default function ProductDetail() {
                 <img
                   src={product.image}
                   alt={product.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
               </div>
             </Card>
@@ -489,6 +503,19 @@ export default function ProductDetail() {
                       Связаться с нами
                     </Button>
                   </Link>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="hover-elevate transition-all"
+                    onClick={() => {
+                      if (product.brochure) {
+                        window.open(product.brochure, "_blank");
+                      }
+                    }}
+                  >
+                    <Download className="w-4 h-4 mr-2" />
+                    Скачать брошюру
+                  </Button>
                   <Link href="/products">
                     <Button
                       size="lg"

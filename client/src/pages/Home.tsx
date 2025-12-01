@@ -7,7 +7,7 @@ import NewsCard from "@/components/NewsCard";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowRight, Sparkles, Target, Activity } from "lucide-react";
+import { ArrowRight, Sparkles, Target, Spline } from "lucide-react";
 
 import femtoImage from "@assets/generated_images/FEMTO_LDV_laser_system_ef76a057.png";
 import galileiImage from "@assets/generated_images/GALILEI_diagnostic_device_2aba34c6.png";
@@ -48,6 +48,7 @@ export default function Home() {
       description:
         "Фемтосекундный лазер нового поколения с технологией низкой энергии",
       image: femtoImage,
+      brochure: "/pdf/FEMTO.pdf",
       features: [
         "Концепция низкой энергии",
         "Интраоперационный ОКТ",
@@ -59,6 +60,7 @@ export default function Home() {
       description:
         "Передовая диагностическая платформа для полного анализа роговицы",
       image: galileiImage,
+      brochure: "/pdf/GALILEI.pdf",
       features: [
         "Двойная система Scheimpflug",
         "Топография роговицы",
@@ -69,6 +71,7 @@ export default function Home() {
       title: "AQUARIUZ",
       description: "Инновационная система для точной и эффективной хирургии",
       image: eyeVizImage,
+      brochure: "/pdf/AQUARIUZ.pdf",
       features: ["Бесшумная работа", "Высокая точность", "Эргономичный дизайн"],
     },
   ];
@@ -150,22 +153,28 @@ export default function Home() {
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-4">
+                <Link href="/clear-supra">
+                  <Card className="p-6 text-center hover-elevate transition-all">
+                    <Sparkles className="w-8 h-8 text-primary mx-auto mb-3" />
+                    <div className="text-sm font-semibold">CLEAR SUPRA</div>
+                  </Card>
+                </Link>
                 <Link href="/clear">
                   <Card className="p-6 text-center hover-elevate transition-all">
                     <Sparkles className="w-8 h-8 text-primary mx-auto mb-3" />
                     <div className="text-sm font-semibold">CLEAR</div>
                   </Card>
                 </Link>
+                <Link href="/flow-suite">
+                  <Card className="p-6 text-center hover-elevate transition-all">
+                    <Spline className="w-8 h-8 text-primary mx-auto mb-3" />
+                    <div className="text-sm font-semibold">FLOW SUITE</div>
+                  </Card>
+                </Link>
                 <Link href="/aquariuz">
                   <Card className="p-6 text-center hover-elevate transition-all">
                     <Target className="w-8 h-8 text-primary mx-auto mb-3" />
                     <div className="text-sm font-semibold">AQUARIUZ</div>
-                  </Card>
-                </Link>
-                <Link href="/flow-suite">
-                  <Card className="p-6 text-center hover-elevate transition-all">
-                    <Activity className="w-8 h-8 text-primary mx-auto mb-3" />
-                    <div className="text-sm font-semibold">FLOW SUITE</div>
                   </Card>
                 </Link>
               </div>
@@ -206,14 +215,14 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-end justify-between mb-12">
             <div className="space-y-2">
-              <h2 className="text-4xl font-bold">Новости и события</h2>
+              <h2 className="text-4xl font-bold">Блог</h2>
               <p className="text-muted-foreground">
                 Актуальные конференции и мероприятия
               </p>
             </div>
-            <Link href="/news">
+            <Link href="/blog">
               <Button variant="ghost" data-testid="button-all-news">
-                Все новости
+                Все записи
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </Link>

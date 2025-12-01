@@ -27,12 +27,16 @@ export default function Hero() {
         className="absolute inset-0 z-0 transition-transform duration-75"
         style={{ willChange: "transform" }}
       >
-        <div className="w-full h-full flex items-center justify-center">
-          <h2 className="text-9xl sm:text-[12rem] lg:text-[16rem] font-bold bg-gradient-to-r from-primary/50 via-primary/40 to-primary/40 bg-clip-text text-transparent select-none translate-x-12">
-            ZIEMER
-          </h2>
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/60 z-10" />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/videos/flowsuite_bg.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-r from-background/100 via-background/40 to-background/10 z-10" />
       </div>
 
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -103,19 +107,19 @@ export default function Hero() {
             style={{ animationDelay: "800ms" }}
           >
             <div className="space-y-1 hover:scale-110 transition-transform duration-300 cursor-pointer">
-              <div className="text-3xl font-bold text-primary">500+</div>
+              <div className="text-3xl font-bold text-primary">1700+</div>
               <div className="text-sm text-muted-foreground">
-                Клиник по всему миру
+                Продано лазеров ZIEMER
               </div>
             </div>
             <div className="space-y-1 hover:scale-110 transition-transform duration-300 cursor-pointer">
-              <div className="text-3xl font-bold text-primary">15+</div>
+              <div className="text-3xl font-bold text-primary">20+</div>
               <div className="text-sm text-muted-foreground">Лет опыта</div>
             </div>
             <div className="space-y-1 hover:scale-110 transition-transform duration-300 cursor-pointer">
-              <div className="text-3xl font-bold text-primary">100K+</div>
+              <div className="text-3xl font-bold text-primary">ХХХ+</div>
               <div className="text-sm text-muted-foreground">
-                Успешных операций
+                Клиник в мире с ZIEMER
               </div>
             </div>
           </div>
@@ -126,6 +130,14 @@ export default function Hero() {
         <div className="w-10 h-10 rounded-full border-2 border-primary/50 flex items-center justify-center p-2">
           <ChevronsDown color={"rgb(207, 23, 23)"} />
         </div>
+      </div>
+
+      <div className="absolute bottom-8 right-8 z-20">
+        <img
+          src="/images/z_logo.png"
+          alt="Ziemer"
+          className="h-16 sm:h-20 lg:h-24 opacity-90 hover:opacity-100 transition-opacity duration-300"
+        />
       </div>
     </section>
   );

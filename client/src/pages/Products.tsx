@@ -19,7 +19,8 @@ export default function Products() {
       title: "FEMTO LDV Z8",
       description:
         "Фемтосекундный лазер нового поколения с технологией низкой энергии для рефракционной хирургии и катаракты",
-      image: femtoImage,
+      image: "/images/products/FEMTO.png",
+      brochure: "/pdf/FEMTO.pdf",
       features: [
         "Концепция низкой энергии",
         "Интраоперационный ОКТ",
@@ -31,7 +32,8 @@ export default function Products() {
       title: "GALILEI G6",
       description:
         "Передовая диагностическая платформа для полного анализа роговицы и переднего сегмента глаза",
-      image: galileiImage,
+      image: "/images/products/GALILEI.png",
+      brochure: "/pdf/GALILEI.pdf",
       features: [
         "Двойная система Scheimpflug",
         "Топография роговицы",
@@ -43,48 +45,13 @@ export default function Products() {
       title: "AQUARIUZ",
       description:
         "Инновационная система для точной и эффективной рефракционной хирургии",
-      image: eyeVizImage,
+      image: "/images/products/AQUARIUZ.png",
+      brochure: "/pdf/AQUARIUZ.pdf",
       features: [
         "Бесшумная работа",
         "Высокая точность",
         "Эргономичный дизайн",
         "Быстрая процедура",
-      ],
-    },
-    {
-      title: "FLOWSUITE",
-      description:
-        "Программное обеспечение для планирования и управления офтальмологическими процедурами",
-      image: eyeVizImage,
-      features: [
-        "Интуитивный интерфейс",
-        "Интеграция с оборудованием",
-        "Планирование процедур",
-        "Анализ данных",
-      ],
-    },
-    {
-      title: "FERRARA RING",
-      description:
-        "Интракорнеальные кольцевые сегменты для коррекции кератоконуса",
-      image: eyeVizImage,
-      features: [
-        "Биосовместимый материал",
-        "Различные размеры",
-        "Обратимая процедура",
-        "Стабильные результаты",
-      ],
-    },
-    {
-      title: "X-LINK",
-      description:
-        "Система для корнеального кросслинкинга при лечении кератоконуса",
-      image: eyeVizImage,
-      features: [
-        "Укрепление роговицы",
-        "Остановка прогрессирования",
-        "Безопасная процедура",
-        "Доказанная эффективность",
       ],
     },
   ];

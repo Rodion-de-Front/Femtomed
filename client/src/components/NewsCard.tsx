@@ -31,7 +31,7 @@ export default function NewsCard({
       .replace(/^-+|-+$/g, "");
 
   return (
-    <Link href={`/news/${newsId}`}>
+    <Link href={`/blog/${newsId}`}>
       <Card
         className="group overflow-hidden hover-elevate transition-all duration-500 cursor-pointer hover:shadow-xl"
         data-testid={`card-news-${title

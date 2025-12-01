@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import VideoModal from "@/components/VideoModal";
 import { Check, ArrowRight } from "lucide-react";
 
 export default function CLEARSection() {
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const benefits = [
     "Возможность изменения позиции лентикулы после докинга",
     "Надежный вакуум, известный в системах Ziemer",
@@ -51,7 +54,11 @@ export default function CLEARSection() {
                   обеспечения
                 </p>
                 <div className="pt-4">
-                  <Button className="group" data-testid="button-clear-details">
+                  <Button
+                    className="group"
+                    data-testid="button-clear-details"
+                    onClick={() => setIsVideoModalOpen(true)}
+                  >
                     Подробнее о CLEAR
                     <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
@@ -76,6 +83,12 @@ export default function CLEARSection() {
           </div>
         </div>
       </div>
+      <VideoModal
+        open={isVideoModalOpen}
+        onOpenChange={setIsVideoModalOpen}
+        videoUrl="/videos/Clear.mp4"
+        title="Подробнее о технологии CLEAR"
+      />
     </section>
   );
 }

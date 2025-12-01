@@ -1,27 +1,35 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Phone, Mail } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { href: "/", label: "Главная" },
   { href: "/about", label: "О нас" },
+  { href: "/vision-test", label: "Заболевания" },
   { href: "/products", label: "Оборудование" },
-  { href: "/news", label: "Новости" },
-  { href: "/vision-test", label: "Тесты" },
-  { href: "/contacts", label: "Контакты" },
+  { href: "/blog", label: "Блог" },
+  { href: "/clients", label: "Клиентам" },
 ];
 
 const technologyLinks = [
-  { href: "/aquariuz", label: "AQUARIUZ" },
   { href: "/clear", label: "CLEAR" },
+  { href: "/clear-supra", label: "CLEAR SUPRA" },
   { href: "/flow-suite", label: "FLOW SUITE" },
+];
+
+const diseaseLinks = [
+  { href: "/cataract", label: "Катаракта" },
+  { href: "/refraction", label: "Рефракция" },
+  { href: "/corneal-grafting", label: "Кератопластика" },
+  { href: "/keratikonus", label: "Кератоконус" },
 ];
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isTechnologiesHovered, setIsTechnologiesHovered] = useState(false);
+  const [isDiseasesHovered, setIsDiseasesHovered] = useState(false);
   const [location] = useLocation();
   const [indicatorStyle, setIndicatorStyle] = useState({
     left: 0,
@@ -30,7 +38,9 @@ export default function Header() {
   });
   const navRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const technologiesMenuRef = useRef<HTMLDivElement>(null);
+  const diseasesMenuRef = useRef<HTMLDivElement>(null);
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const diseasesCloseTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,6 +55,9 @@ export default function Header() {
       if (closeTimeoutRef.current) {
         clearTimeout(closeTimeoutRef.current);
       }
+      if (diseasesCloseTimeoutRef.current) {
+        clearTimeout(diseasesCloseTimeoutRef.current);
+      }
     };
   }, []);
 
@@ -56,7 +69,28 @@ export default function Header() {
       );
 
       // Если это страница технологии, показываем индикатор на пункте "Технологии"
-      if (isTechnologyPage && navRefs.current[2]) {
+      if (isTechnologyPage && navRefs.current[4]) {
+        const activeElement = navRefs.current[4];
+        const navContainer = activeElement?.closest("nav");
+        if (activeElement && navContainer) {
+          const containerRect = navContainer.getBoundingClientRect();
+          const elementRect = activeElement.getBoundingClientRect();
+          setIndicatorStyle({
+            left: elementRect.left - containerRect.left,
+            width: elementRect.width,
+            opacity: 1,
+          });
+          return;
+        }
+      }
+
+      // Проверяем, находимся ли мы на странице одного из заболеваний
+      const isDiseasePage = diseaseLinks.some((link) =>
+        location.startsWith(link.href.split("#")[0])
+      );
+
+      // Если это страница заболевания, показываем индикатор на пункте "Заболевания"
+      if (isDiseasePage && navRefs.current[2]) {
         const activeElement = navRefs.current[2];
         const navContainer = activeElement?.closest("nav");
         if (activeElement && navContainer) {
@@ -73,21 +107,31 @@ export default function Header() {
 
       // Иначе ищем среди обычных ссылок
       const activeIndex = navLinks.findIndex((link) => link.href === location);
-      if (
-        activeIndex !== -1 &&
-        navRefs.current[activeIndex < 2 ? activeIndex : activeIndex + 1]
-      ) {
-        const adjustedIndex = activeIndex < 2 ? activeIndex : activeIndex + 1;
-        const activeElement = navRefs.current[adjustedIndex];
-        const navContainer = activeElement?.closest("nav");
-        if (activeElement && navContainer) {
-          const containerRect = navContainer.getBoundingClientRect();
-          const elementRect = activeElement.getBoundingClientRect();
-          setIndicatorStyle({
-            left: elementRect.left - containerRect.left,
-            width: elementRect.width,
-            opacity: 1,
-          });
+      if (activeIndex !== -1) {
+        // Индексы: 0,1 -> 0,1; 2 -> пропуск (Заболевания); 3 -> 3; 4 -> пропуск (Технологии); 5,6 -> 5,6
+        let adjustedIndex: number;
+        if (activeIndex < 2) {
+          adjustedIndex = activeIndex;
+        } else if (activeIndex === 2) {
+          // Заболевания - уже обработано выше
+          return;
+        } else if (activeIndex === 3) {
+          adjustedIndex = 3;
+        } else {
+          adjustedIndex = activeIndex + 1; // Пропускаем индекс 4 (Технологии)
+        }
+        if (navRefs.current[adjustedIndex]) {
+          const activeElement = navRefs.current[adjustedIndex];
+          const navContainer = activeElement?.closest("nav");
+          if (activeElement && navContainer) {
+            const containerRect = navContainer.getBoundingClientRect();
+            const elementRect = activeElement.getBoundingClientRect();
+            setIndicatorStyle({
+              left: elementRect.left - containerRect.left,
+              width: elementRect.width,
+              opacity: 1,
+            });
+          }
         }
       } else {
         setIndicatorStyle((prev) => ({ ...prev, opacity: 0 }));
@@ -123,7 +167,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           <Link href="/" data-testid="link-home">
             <div className="flex items-center gap-3 hover-elevate rounded-md px-3 py-2 transition-all cursor-pointer">
-              <img src="/logo.png" alt="Femtomed" className="h-10" />
+              <img src="/images/logo.png" alt="Femtomed" className="h-10" />
             </div>
           </Link>
 
@@ -136,6 +180,106 @@ export default function Header() {
                 <Button
                   ref={(el) => {
                     navRefs.current[index] = el;
+                  }}
+                  variant="ghost"
+                  className={`font-medium transition-colors no-default-hover-elevate ${
+                    location === link.href
+                      ? "text-primary"
+                      : "text-foreground hover:text-primary"
+                  } hover:!bg-transparent hover:!shadow-none hover:!scale-100 active:!bg-transparent active:!shadow-none active:!scale-100`}
+                  style={{
+                    backgroundColor: "transparent",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = "transparent";
+                    e.currentTarget.style.boxShadow = "none";
+                    e.currentTarget.style.transform = "scale(1)";
+                    if (location !== link.href) {
+                      e.currentTarget.style.color = "";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = "transparent";
+                    e.currentTarget.style.boxShadow = "none";
+                    e.currentTarget.style.transform = "scale(1)";
+                  }}
+                  data-testid={`link-${link.label.toLowerCase()}`}
+                >
+                  {link.label}
+                </Button>
+              </Link>
+            ))}
+            <div
+              className="relative"
+              onMouseEnter={() => {
+                if (diseasesCloseTimeoutRef.current) {
+                  clearTimeout(diseasesCloseTimeoutRef.current);
+                  diseasesCloseTimeoutRef.current = null;
+                }
+                setIsDiseasesHovered(true);
+              }}
+              onMouseLeave={() => {
+                diseasesCloseTimeoutRef.current = setTimeout(() => {
+                  setIsDiseasesHovered(false);
+                }, 200);
+              }}
+            >
+              <Button
+                ref={(el) => {
+                  navRefs.current[2] = el;
+                }}
+                variant="ghost"
+                className={`font-medium transition-colors no-default-hover-elevate ${
+                  diseaseLinks.some((link) =>
+                    location.startsWith(link.href.split("#")[0])
+                  )
+                    ? "text-primary"
+                    : "text-foreground hover:text-primary"
+                } hover:!bg-transparent hover:!shadow-none hover:!scale-100 active:!bg-transparent active:!shadow-none active:!scale-100`}
+                style={{
+                  backgroundColor: "transparent",
+                }}
+                data-testid="link-diseases"
+              >
+                Заболевания
+              </Button>
+              {isDiseasesHovered && (
+                <div
+                  ref={diseasesMenuRef}
+                  className="absolute top-full left-1/2 -translate-x-1/2 mt-2 min-w-[200px] bg-background/95 backdrop-blur-md border rounded-md shadow-lg z-50 py-1"
+                  onMouseEnter={() => {
+                    if (diseasesCloseTimeoutRef.current) {
+                      clearTimeout(diseasesCloseTimeoutRef.current);
+                      diseasesCloseTimeoutRef.current = null;
+                    }
+                  }}
+                  onMouseLeave={() => {
+                    diseasesCloseTimeoutRef.current = setTimeout(() => {
+                      setIsDiseasesHovered(false);
+                    }, 200);
+                  }}
+                >
+                  {diseaseLinks.map((link) => (
+                    <Link key={link.href} href={link.href}>
+                      <div
+                        className={`px-4 py-2 text-sm text-center transition-colors cursor-pointer ${
+                          location.startsWith(link.href.split("#")[0])
+                            ? "text-primary bg-primary/10"
+                            : "text-foreground hover:text-primary hover:bg-primary/5"
+                        }`}
+                      >
+                        {link.label}
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+            {navLinks.slice(3, 4).map((link, index) => (
+              <Link key={link.href} href={link.href}>
+                <Button
+                  ref={(el) => {
+                    navRefs.current[index + 3] = el;
                   }}
                   variant="ghost"
                   className={`font-medium transition-colors no-default-hover-elevate ${
@@ -182,7 +326,7 @@ export default function Header() {
             >
               <Button
                 ref={(el) => {
-                  navRefs.current[2] = el;
+                  navRefs.current[4] = el;
                 }}
                 variant="ghost"
                 className={`font-medium transition-colors no-default-hover-elevate ${
@@ -229,11 +373,11 @@ export default function Header() {
                 </div>
               )}
             </div>
-            {navLinks.slice(2).map((link, index) => (
+            {navLinks.slice(4).map((link, index) => (
               <Link key={link.href} href={link.href}>
                 <Button
                   ref={(el) => {
-                    navRefs.current[index + 3] = el;
+                    navRefs.current[index + 5] = el;
                   }}
                   variant="ghost"
                   className={`font-medium transition-colors no-default-hover-elevate ${
@@ -328,6 +472,43 @@ export default function Header() {
             ))}
             <div className="w-full">
               <div className="text-sm font-semibold px-2 py-2 text-muted-foreground">
+                Заболевания
+              </div>
+              {diseaseLinks.map((link) => (
+                <Link key={link.href} href={link.href}>
+                  <Button
+                    variant="ghost"
+                    className={`w-full justify-start transition-colors no-default-hover-elevate ${
+                      location.startsWith(link.href.split("#")[0])
+                        ? "text-primary bg-primary/10"
+                        : "text-foreground hover:text-primary"
+                    } hover:!bg-transparent`}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    data-testid={`link-mobile-${link.label.toLowerCase()}`}
+                  >
+                    {link.label}
+                  </Button>
+                </Link>
+              ))}
+            </div>
+            {navLinks.slice(3, 4).map((link) => (
+              <Link key={link.href} href={link.href}>
+                <Button
+                  variant="ghost"
+                  className={`w-full justify-start transition-colors no-default-hover-elevate ${
+                    location === link.href
+                      ? "text-primary bg-primary/10"
+                      : "text-foreground hover:text-primary"
+                  } hover:!bg-transparent`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  data-testid={`link-mobile-${link.label.toLowerCase()}`}
+                >
+                  {link.label}
+                </Button>
+              </Link>
+            ))}
+            <div className="w-full">
+              <div className="text-sm font-semibold px-2 py-2 text-muted-foreground">
                 Технологии
               </div>
               {technologyLinks.map((link) => (
@@ -347,7 +528,7 @@ export default function Header() {
                 </Link>
               ))}
             </div>
-            {navLinks.slice(2).map((link) => (
+            {navLinks.slice(4).map((link) => (
               <Link key={link.href} href={link.href}>
                 <Button
                   variant="ghost"

@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import VideoModal from "@/components/VideoModal";
 import { Check, ArrowRight } from "lucide-react";
 
 export default function FLOWSUITESection() {
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const benefits = [
     "Комплексное управление рабочими процессами",
     "Автоматизация рутинных операций",
@@ -54,6 +57,7 @@ export default function FLOWSUITESection() {
                   <Button
                     className="group"
                     data-testid="button-flow-suite-details"
+                    onClick={() => setIsVideoModalOpen(true)}
                   >
                     Подробнее о FLOW SUITE
                     <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -79,6 +83,12 @@ export default function FLOWSUITESection() {
           </div>
         </div>
       </div>
+      <VideoModal
+        open={isVideoModalOpen}
+        onOpenChange={setIsVideoModalOpen}
+        videoUrl="/videos/flowsuite_bg.mp4"
+        title="Подробнее о системе FLOW SUITE"
+      />
     </section>
   );
 }
