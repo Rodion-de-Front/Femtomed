@@ -13,8 +13,7 @@ const navLinks = [
 ];
 
 const technologyLinks = [
-  { href: "/clear", label: "CLEAR" },
-  { href: "/clear-supra", label: "CLEAR SUPRA" },
+  { href: "/clear", label: "CLEAR SUPRA" },
   { href: "/flow-suite", label: "FLOW SUITE" },
 ];
 
@@ -425,10 +424,8 @@ export default function Header() {
             <Button variant="ghost" size="icon" data-testid="button-email">
               <Mail className="w-4 h-4" />
             </Button> */}
-            <Link href="/contacts">
-              <Button variant="default" data-testid="button-trade-in">
-                TRADE-IN
-              </Button>
+            <Link href="/clients#form">
+              <Button variant="default">Связаться</Button>
             </Link>
           </div>
 
@@ -544,13 +541,15 @@ export default function Header() {
                 </Button>
               </Link>
             ))}
-            <Button
-              variant="default"
-              className="w-full mt-2"
-              data-testid="button-mobile-trade-in"
-            >
-              TRADE-IN
-            </Button>
+            <Link href="/clients#form">
+              <Button
+                variant="default"
+                className="w-full mt-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Связаться
+              </Button>
+            </Link>
           </nav>
         </div>
       )}

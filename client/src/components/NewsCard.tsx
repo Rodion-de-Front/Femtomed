@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, MapPin } from "lucide-react";
+import { Calendar, MapPin, FileText } from "lucide-react";
 
 interface NewsCardProps {
   id?: string;
@@ -11,6 +11,8 @@ interface NewsCardProps {
   image?: string;
   excerpt: string;
   category?: string;
+  pdfUrl?: string;
+  url?: string;
 }
 
 export default function NewsCard({
@@ -21,6 +23,8 @@ export default function NewsCard({
   image,
   excerpt,
   category,
+  pdfUrl,
+  url,
 }: NewsCardProps) {
   // Генерируем id из title, если не передан
   const newsId =
@@ -30,55 +34,77 @@ export default function NewsCard({
       .replace(/[^a-zа-яё0-9]+/g, "-")
       .replace(/^-+|-+$/g, "");
 
-  return (
-    <Link href={`/blog/${newsId}`}>
-      <Card
-        className="group overflow-hidden hover-elevate transition-all duration-500 cursor-pointer hover:shadow-xl"
-        data-testid={`card-news-${title
-          .substring(0, 20)
-          .toLowerCase()
-          .replace(/\s+/g, "-")}`}
-      >
-        {image && (
-          <div className="relative h-48 overflow-hidden bg-muted">
-            <img
-              src={image}
-              alt={title}
-              className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
-            />
-            {category && (
-              <div className="absolute top-4 left-4 animate-in fade-in slide-in-from-left duration-500">
-                <Badge
-                  variant="secondary"
-                  className="backdrop-blur-sm hover:scale-110 transition-transform duration-300"
-                >
-                  {category}
-                </Badge>
-              </div>
-            )}
+  // Если категория "Новости", используем внутреннюю навигацию, иначе - внешнюю ссылку
+  const isNewsCategory = category === "Новости";
+  const internalHref = isNewsCategory ? `/blog/${newsId}` : undefined;
+
+  const cardContent = (
+    <Card
+      className="group overflow-hidden hover-elevate transition-all duration-500 cursor-pointer hover:shadow-xl"
+      data-testid={`card-news-${title
+        .substring(0, 20)
+        .toLowerCase()
+        .replace(/\s+/g, "-")}`}
+    >
+      {image && (
+        <div className="relative h-48 overflow-hidden bg-muted">
+          <img
+            src={image}
+            alt={title}
+            className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
+          />
+          {category && (
+            <div className="absolute top-4 left-4 animate-in fade-in slide-in-from-left duration-500">
+              <Badge
+                variant="secondary"
+                className="backdrop-blur-sm hover:scale-110 transition-transform duration-300"
+              >
+                {category}
+              </Badge>
+            </div>
+          )}
+        </div>
+      )}
+      <div className="p-6 space-y-3">
+        <div className="flex items-center gap-4 text-sm text-muted-foreground">
+          <div className="flex items-center gap-1.5">
+            <Calendar className="w-4 h-4" />
+            <span>{date}</span>
+          </div>
+          {location && location !== "-" && (
+            <div className="flex items-center gap-1.5">
+              <MapPin className="w-4 h-4" />
+              <span>{location}</span>
+            </div>
+          )}
+        </div>
+        <h3 className="text-xl font-semibold leading-tight group-hover:text-primary transition-colors">
+          {title}
+        </h3>
+        <p className="text-muted-foreground leading-relaxed line-clamp-3">
+          {excerpt}
+        </p>
+        {pdfUrl && (
+          <div className="flex items-center gap-2 text-sm text-primary pt-2">
+            <FileText className="w-4 h-4" />
+            <span>PDF доступен</span>
           </div>
         )}
-        <div className="p-6 space-y-3">
-          <div className="flex items-center gap-4 text-sm text-muted-foreground">
-            <div className="flex items-center gap-1.5">
-              <Calendar className="w-4 h-4" />
-              <span>{date}</span>
-            </div>
-            {location && (
-              <div className="flex items-center gap-1.5">
-                <MapPin className="w-4 h-4" />
-                <span>{location}</span>
-              </div>
-            )}
-          </div>
-          <h3 className="text-xl font-semibold leading-tight group-hover:text-primary transition-colors">
-            {title}
-          </h3>
-          <p className="text-muted-foreground leading-relaxed line-clamp-3">
-            {excerpt}
-          </p>
-        </div>
-      </Card>
-    </Link>
+      </div>
+    </Card>
   );
+
+  if (internalHref) {
+    return <Link href={internalHref}>{cardContent}</Link>;
+  }
+
+  if (url) {
+    return (
+      <a href={url} target="_blank" rel="noopener noreferrer">
+        {cardContent}
+      </a>
+    );
+  }
+
+  return cardContent;
 }

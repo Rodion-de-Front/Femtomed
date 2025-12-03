@@ -1,14 +1,11 @@
-import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CLEARSection from "@/components/CLEARSection";
-import VideoModal from "@/components/VideoModal";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Play, FileText, Video, Download } from "lucide-react";
 
 export default function CLEAR() {
-  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -18,7 +15,7 @@ export default function CLEAR() {
             <h2 className="text-4xl sm:text-5xl font-bold">
               Технология{" "}
               <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-                CLEAR
+                CLEAR SUPRA
               </span>
             </h2>
             <div className="space-y-2">
@@ -44,7 +41,7 @@ export default function CLEAR() {
                 Дополнительные материалы
               </h2>
               <p className="text-muted-foreground">
-                Видео, документация и ресурсы о технологии CLEAR
+                Видео, документация и ресурсы о технологии CLEAR SUPRA
               </p>
             </div>
 
@@ -59,12 +56,17 @@ export default function CLEAR() {
                   </div>
                   <h3 className="text-xl font-semibold">Видеозаписи</h3>
                   <p className="text-sm text-muted-foreground">
-                    Посмотреть видеоматериалы о процедуре CLEAR
+                    Посмотреть видеоматериалы о процедуре CLEAR SUPRA
                   </p>
                   <Button
                     variant="ghost"
                     className="w-full justify-start"
-                    onClick={() => setIsVideoModalOpen(true)}
+                    onClick={() =>
+                      window.open(
+                        "https://disk.yandex.ru/i/4cxsnqgVGyzYpA",
+                        "_blank"
+                      )
+                    }
                   >
                     <Play className="w-4 h-4 mr-2" />
                     Смотреть
@@ -82,7 +84,7 @@ export default function CLEAR() {
                   </div>
                   <h3 className="text-xl font-semibold">Брошюра</h3>
                   <p className="text-sm text-muted-foreground">
-                    Подробная информация о технологии CLEAR в формате PDF
+                    Подробная информация о технологии CLEAR SUPRA в формате PDF
                   </p>
                   <Button
                     variant="ghost"
@@ -101,12 +103,6 @@ export default function CLEAR() {
         </section>
       </main>
       <Footer />
-      <VideoModal
-        open={isVideoModalOpen}
-        onOpenChange={setIsVideoModalOpen}
-        videoUrl="/videos/Clear.mp4"
-        title="Видео о технологии CLEAR"
-      />
     </div>
   );
 }

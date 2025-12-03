@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { useLocation } from "wouter";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
@@ -25,6 +26,8 @@ import { Link } from "wouter";
 
 export default function Contacts() {
   const { toast } = useToast();
+  const [location] = useLocation();
+  const formRef = useRef<HTMLElement>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -32,6 +35,45 @@ export default function Contacts() {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    const scrollToForm = () => {
+      const hash = window.location.hash;
+      if (hash === "#form") {
+        // Используем несколько попыток с увеличивающейся задержкой
+        const attempts = [100, 300, 500, 800];
+
+        attempts.forEach((delay, index) => {
+          setTimeout(() => {
+            const formElement =
+              formRef.current || document.getElementById("form");
+            if (formElement) {
+              const headerOffset = 100;
+              const elementPosition = formElement.getBoundingClientRect().top;
+              const offsetPosition =
+                elementPosition + window.pageYOffset - headerOffset;
+
+              window.scrollTo({
+                top: offsetPosition,
+                behavior: index === 0 ? "auto" : "smooth",
+              });
+            }
+          }, delay);
+        });
+      }
+    };
+
+    // Небольшая задержка для того, чтобы компонент успел отрендериться
+    const timeoutId = setTimeout(scrollToForm, 50);
+
+    // Также слушаем изменения hash
+    window.addEventListener("hashchange", scrollToForm);
+
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener("hashchange", scrollToForm);
+    };
+  }, [location]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -372,7 +414,7 @@ export default function Contacts() {
         </section>
 
         {/* Форма обратной связи */}
-        <section className="py-16 bg-muted/30">
+        <section id="form" ref={formRef} className="py-16 bg-muted/30">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12">
               <Card className="p-8">

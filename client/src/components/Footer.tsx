@@ -5,24 +5,24 @@ import { Button } from "@/components/ui/button";
 export default function Footer() {
   return (
     <footer className="bg-muted/50 border-t" data-testid="footer-main">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1fr_140px_140px_140px_140px_200px] gap-8">
           <div className="space-y-1">
             <div className="flex items-center gap-3">
               <img src="/images/logo.png" alt="Femtomed" className="h-10" />
             </div>
-            <p className="text-xs text-muted-foreground leading-relaxed">
+            <p className="text-sm text-muted-foreground leading-relaxed">
               Передовые технологии офтальмологии для профессионалов
             </p>
           </div>
 
           <div className="space-y-1">
-            <h3 className="font-semibold text-xs">Компания</h3>
+            <h3 className="font-semibold text-sm">Компания</h3>
             <nav className="flex flex-col gap-0">
               <Link href="/">
                 <Button
                   variant="ghost"
-                  className="justify-start px-0 h-auto py-0 min-h-0 text-xs hover:bg-transparent hover:text-current"
+                  className="justify-start px-0 h-auto py-0 min-h-0 text-sm hover:bg-transparent hover:text-current"
                   data-testid="link-footer-home"
                 >
                   Главная
@@ -31,7 +31,7 @@ export default function Footer() {
               <Link href="/about">
                 <Button
                   variant="ghost"
-                  className="justify-start px-0 h-auto py-0 min-h-0 text-xs hover:bg-transparent hover:text-current"
+                  className="justify-start px-0 h-auto py-0 min-h-0 text-sm hover:bg-transparent hover:text-current"
                   data-testid="link-footer-about"
                 >
                   О нас
@@ -40,7 +40,7 @@ export default function Footer() {
               <Link href="/blog">
                 <Button
                   variant="ghost"
-                  className="justify-start px-0 h-auto py-0 min-h-0 text-xs hover:bg-transparent hover:text-current"
+                  className="justify-start px-0 h-auto py-0 min-h-0 text-sm hover:bg-transparent hover:text-current"
                   data-testid="link-footer-blog"
                 >
                   Блог
@@ -49,7 +49,7 @@ export default function Footer() {
               <Link href="/clients">
                 <Button
                   variant="ghost"
-                  className="justify-start px-0 h-auto py-0 min-h-0 text-xs hover:bg-transparent hover:text-current"
+                  className="justify-start px-0 h-auto py-0 min-h-0 text-sm hover:bg-transparent hover:text-current"
                   data-testid="link-footer-clients"
                 >
                   Клиентам
@@ -59,12 +59,12 @@ export default function Footer() {
           </div>
 
           <div className="space-y-1">
-            <h3 className="font-semibold text-xs">Заболевания</h3>
+            <h3 className="font-semibold text-sm">Заболевания</h3>
             <nav className="flex flex-col gap-0">
               <Link href="/cataract">
                 <Button
                   variant="ghost"
-                  className="justify-start px-0 h-auto py-0 min-h-0 text-xs hover:bg-transparent hover:text-current"
+                  className="justify-start px-0 h-auto py-0 min-h-0 text-sm hover:bg-transparent hover:text-current"
                   data-testid="link-footer-cataract"
                 >
                   Катаракта
@@ -91,7 +91,7 @@ export default function Footer() {
               <Link href="/refraction">
                 <Button
                   variant="ghost"
-                  className="justify-start px-0 h-auto py-0 min-h-0 text-xs hover:bg-transparent hover:text-current"
+                  className="justify-start px-0 h-auto py-0 min-h-0 text-sm hover:bg-transparent hover:text-current"
                   data-testid="link-footer-refraction"
                 >
                   Рефракция
@@ -127,7 +127,7 @@ export default function Footer() {
               <Link href="/corneal-grafting">
                 <Button
                   variant="ghost"
-                  className="justify-start px-0 h-auto py-0 min-h-0 text-xs hover:bg-transparent hover:text-current"
+                  className="justify-start px-0 h-auto py-0 min-h-0 text-sm hover:bg-transparent hover:text-current"
                   data-testid="link-footer-corneal-grafting"
                 >
                   Кератопластика
@@ -154,7 +154,7 @@ export default function Footer() {
               <Link href="/keratikonus">
                 <Button
                   variant="ghost"
-                  className="justify-start px-0 h-auto py-0 min-h-0 text-xs hover:bg-transparent hover:text-current"
+                  className="justify-start px-0 h-auto py-0 min-h-0 text-sm hover:bg-transparent hover:text-current"
                   data-testid="link-footer-keratikonus"
                 >
                   Кератоконус
@@ -191,12 +191,12 @@ export default function Footer() {
           </div>
 
           <div className="space-y-1">
-            <h3 className="font-semibold text-xs">Оборудование</h3>
+            <h3 className="font-semibold text-sm">Оборудование</h3>
             <nav className="flex flex-col gap-0">
               <Link href="/products/femto-ldv-z8">
                 <Button
                   variant="ghost"
-                  className="justify-start px-0 h-auto py-0 min-h-0 text-xs hover:bg-transparent hover:text-current"
+                  className="justify-start px-0 h-auto py-0 min-h-0 text-sm hover:bg-transparent hover:text-current"
                   data-testid="link-footer-femto"
                 >
                   FEMTO LDV Z8
@@ -205,7 +205,7 @@ export default function Footer() {
               <Link href="/products/galilei-g6">
                 <Button
                   variant="ghost"
-                  className="justify-start px-0 h-auto py-0 min-h-0 text-xs hover:bg-transparent hover:text-current"
+                  className="justify-start px-0 h-auto py-0 min-h-0 text-sm hover:bg-transparent hover:text-current"
                   data-testid="link-footer-galilei"
                 >
                   GALILEI G6
@@ -214,7 +214,7 @@ export default function Footer() {
               <Link href="/products/aquariuz">
                 <Button
                   variant="ghost"
-                  className="justify-start px-0 h-auto py-0 min-h-0 text-xs hover:bg-transparent hover:text-current"
+                  className="justify-start px-0 h-auto py-0 min-h-0 text-sm hover:bg-transparent hover:text-current"
                   data-testid="link-footer-aquariuz"
                 >
                   AQUARIUZ
@@ -224,21 +224,12 @@ export default function Footer() {
           </div>
 
           <div className="space-y-1">
-            <h3 className="font-semibold text-xs">Технологии</h3>
+            <h3 className="font-semibold text-sm">Технологии</h3>
             <nav className="flex flex-col gap-0">
               <Link href="/clear">
                 <Button
                   variant="ghost"
-                  className="justify-start px-0 h-auto py-0 min-h-0 text-xs hover:bg-transparent hover:text-current"
-                  data-testid="link-footer-clear"
-                >
-                  CLEAR
-                </Button>
-              </Link>
-              <Link href="/clear-supra">
-                <Button
-                  variant="ghost"
-                  className="justify-start px-0 h-auto py-0 min-h-0 text-xs hover:bg-transparent hover:text-current"
+                  className="justify-start px-0 h-auto py-0 min-h-0 text-sm hover:bg-transparent hover:text-current"
                   data-testid="link-footer-clear-supra"
                 >
                   CLEAR SUPRA
@@ -247,7 +238,7 @@ export default function Footer() {
               <Link href="/flow-suite">
                 <Button
                   variant="ghost"
-                  className="justify-start px-0 h-auto py-0 min-h-0 text-xs hover:bg-transparent hover:text-current"
+                  className="justify-start px-0 h-auto py-0 min-h-0 text-sm hover:bg-transparent hover:text-current"
                   data-testid="link-footer-flow-suite"
                 >
                   FLOW SUITE
@@ -257,14 +248,14 @@ export default function Footer() {
           </div>
 
           <div className="space-y-2">
-            <h3 className="font-semibold text-xs">Контакты</h3>
-            <div className="space-y-3 text-xs">
+            <h3 className="font-semibold text-sm">Контакты</h3>
+            <div className="space-y-3 text-sm">
               <a
                 href="tel:+79153526688"
                 className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors"
                 data-testid="link-phone"
               >
-                <Phone className="w-3 h-3" />
+                <Phone className="w-4 h-4" />
                 +7 (499) 653-77-67
               </a>
               <a
@@ -272,18 +263,18 @@ export default function Footer() {
                 className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors"
                 data-testid="link-email"
               >
-                <Mail className="w-3 h-3" />
+                <Mail className="w-4 h-4" />
                 office@femtomed.ru
               </a>
               <div className="flex items-start gap-1 text-muted-foreground">
-                <MapPin className="w-3 h-3 mt-0.5" />
+                <MapPin className="w-7 h-7  mt-0.5" />
                 <span>г. Москва, ул. Вавилова, д. 69/75, Россия</span>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="mt-3 pt-2 border-t text-center text-xs text-muted-foreground">
+        <div className="mt-3 pt-2 border-t text-center text-sm text-muted-foreground">
           <p>© 2025 Femtomed. Все права защищены.</p>
         </div>
       </div>

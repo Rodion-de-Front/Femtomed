@@ -98,7 +98,7 @@ export default function About() {
 
   const milestones = [
     { year: "2005", event: "Начало продаж оборудования ZIEMER в России" },
-    { year: "2020", event: "Начало внедрения технологии CLEAR в России" },
+    { year: "2020", event: "Начало внедрения технологии CLEAR SUPRA в России" },
     {
       year: "2025",
       event: "Продан 100 фемтосекундный лазер FEMTO LDV Z в России",
@@ -385,7 +385,7 @@ export default function About() {
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-6">
-                  {["FEMTO LDV Z8", "Технология CLEAR", "GALILEI G6"].map(
+                  {["FEMTO LDV Z8", "Технология CLEAR SUPRA", "GALILEI G6"].map(
                     (product, idx) => (
                       <Card
                         key={idx}

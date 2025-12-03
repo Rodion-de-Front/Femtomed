@@ -1,14 +1,11 @@
-import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FLOWSUITESection from "@/components/FLOWSUITESection";
-import VideoModal from "@/components/VideoModal";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Play, FileText, Video, Download } from "lucide-react";
 
 export default function FLOWSUITE() {
-  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -62,7 +59,7 @@ export default function FLOWSUITE() {
                   <Button
                     variant="ghost"
                     className="w-full justify-start"
-                    onClick={() => setIsVideoModalOpen(true)}
+                    onClick={() => window.open("#", "_blank")}
                   >
                     <Play className="w-4 h-4 mr-2" />
                     Смотреть
@@ -99,12 +96,6 @@ export default function FLOWSUITE() {
         </section>
       </main>
       <Footer />
-      <VideoModal
-        open={isVideoModalOpen}
-        onOpenChange={setIsVideoModalOpen}
-        videoUrl="/videos/flowsuite_bg.mp4"
-        title="Видео о системе FLOW SUITE"
-      />
     </div>
   );
 }

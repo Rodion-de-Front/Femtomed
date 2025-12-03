@@ -47,7 +47,7 @@ export default function Home() {
       title: "FEMTO LDV Z8",
       description:
         "Фемтосекундный лазер нового поколения с технологией низкой энергии",
-      image: femtoImage,
+      image: "/images/products/FEMTO.png",
       brochure: "/pdf/FEMTO.pdf",
       features: [
         "Концепция низкой энергии",
@@ -59,7 +59,7 @@ export default function Home() {
       title: "GALILEI G6",
       description:
         "Передовая диагностическая платформа для полного анализа роговицы",
-      image: galileiImage,
+      image: "/images/products/GALILEI.png",
       brochure: "/pdf/GALILEI.pdf",
       features: [
         "Двойная система Scheimpflug",
@@ -70,7 +70,7 @@ export default function Home() {
     {
       title: "AQUARIUZ",
       description: "Инновационная система для точной и эффективной хирургии",
-      image: eyeVizImage,
+      image: "/images/products/AQUARIUZ.png",
       brochure: "/pdf/AQUARIUZ.pdf",
       features: ["Бесшумная работа", "Высокая точность", "Эргономичный дизайн"],
     },
@@ -78,33 +78,36 @@ export default function Home() {
 
   const news = [
     {
-      id: "tri-portreta-miopii-krasnoyarsk",
-      title: "Три портрета миопии в Красноярске",
-      date: "27 июня 2025",
-      location: "Красноярск",
-      image: conferenceImage,
-      excerpt:
-        "Конференция в рамках познавательного проекта для офтальмологов и неврологов",
-      category: "Конференция",
+      id: "clear-cornea-club-2024",
+      title: "CLEAR CORNEA CLUB 2024",
+      date: "20 июня 2024",
+      location: "Москва",
+      image: "/images/clearCorneaBanner.png",
+      excerpt: "Обзор на XIII съезд офтальмологов России",
+      category: "Обзоры",
+      url: "https://femtomed.ru/wp-content/uploads/2024/10/%D0%98%D0%A2%D0%9E%D0%93%D0%9E%D0%92%D0%AB%D0%99-%D0%9E%D0%91%D0%97%D0%9E%D0%A0-CLEAR-CORNEA-CLUB-2024.pdf",
     },
     {
-      id: "erosh-evskie-chteniya-2025",
-      title: "Ерошевские чтения 2025",
-      date: "19-21 июня 2025",
-      location: "Самара",
+      id: "lazer-technologi-zimer",
+      title: "Лазерные технологии Ziemer в офтальмологии",
+      date: "30 июня 2023",
+      location: "Махачкала",
       image: conferenceImage,
+      excerpt:
+        "Обзор на Северо-Кавказский офтальмологический саммит при поддержке компаний Ziemer и Фемтомед",
+      category: "Обзоры",
+      url: "https://femtomed.ru/wp-content/uploads/2023/09/%D0%9B%D0%B0%D0%B7%D0%B5%D1%80%D0%BD%D1%8B%D0%B5-%D1%82%D0%B5%D1%85%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D0%B8-Ziemer.pdf",
+    },
+    {
+      id: "inovation-tech-zimer",
+      title: "Инновационные технологии швейцарской компании ZIEMER",
+      date: "28 сентября 2023",
+      location: "Москва",
+      image: "images/inovationsZiemreBanner.png",
       excerpt:
         "Международная офтальмологическая конференция с участием ведущих специалистов",
-      category: "Конференция",
-    },
-    {
-      id: "konferentsiya-vostok-zapad",
-      title: "Конференция ВОСТОК-ЗАПАД",
-      date: "29-30 мая 2025",
-      location: "Москва",
-      image: conferenceImage,
-      excerpt: "Международная конференция по офтальмологии в гибридном формате",
-      category: "Конференция",
+      category: "Обзоры",
+      url: "https://femtomed.ru/wp-content/uploads/2024/01/%D0%98%D0%BD%D0%BD%D0%BE%D0%B2%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D1%8B%D0%B5-%D1%82%D0%B5%D1%85%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D0%B8-%D1%88%D0%B2%D0%B5%D0%B9%D1%86%D0%B0%D1%80%D1%81%D0%BA%D0%BE%D0%B9-%D0%BA%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D0%B8-ZIEMER.pdf",
     },
   ];
 
@@ -153,16 +156,10 @@ export default function Home() {
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-4">
-                <Link href="/clear-supra">
-                  <Card className="p-6 text-center hover-elevate transition-all">
-                    <Sparkles className="w-8 h-8 text-primary mx-auto mb-3" />
-                    <div className="text-sm font-semibold">CLEAR SUPRA</div>
-                  </Card>
-                </Link>
                 <Link href="/clear">
                   <Card className="p-6 text-center hover-elevate transition-all">
                     <Sparkles className="w-8 h-8 text-primary mx-auto mb-3" />
-                    <div className="text-sm font-semibold">CLEAR</div>
+                    <div className="text-sm font-semibold">CLEAR SUPRA</div>
                   </Card>
                 </Link>
                 <Link href="/flow-suite">

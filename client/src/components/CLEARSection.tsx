@@ -1,11 +1,8 @@
-import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import VideoModal from "@/components/VideoModal";
 import { Check, ArrowRight } from "lucide-react";
 
 export default function CLEARSection() {
-  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const benefits = [
     "Возможность изменения позиции лентикулы после докинга",
     "Надежный вакуум, известный в системах Ziemer",
@@ -49,17 +46,22 @@ export default function CLEARSection() {
                   Интегрированная платформа
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  CLEAR является интегрированной частью платформы FEMTO LDV Z8 и
-                  может быть приобретена путем обновления программного
+                  CLEAR-SUPRA является интегрированной частью платформы FEMTO
+                  LDV Z8 и может быть приобретена путем обновления программного
                   обеспечения
                 </p>
                 <div className="pt-4">
                   <Button
                     className="group"
                     data-testid="button-clear-details"
-                    onClick={() => setIsVideoModalOpen(true)}
+                    onClick={() =>
+                      window.open(
+                        "https://disk.yandex.ru/i/4cxsnqgVGyzYpA",
+                        "_blank"
+                      )
+                    }
                   >
-                    Подробнее о CLEAR
+                    Подробнее о CLEAR-SUPRA
                     <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </div>
@@ -83,12 +85,6 @@ export default function CLEARSection() {
           </div>
         </div>
       </div>
-      <VideoModal
-        open={isVideoModalOpen}
-        onOpenChange={setIsVideoModalOpen}
-        videoUrl="/videos/Clear.mp4"
-        title="Подробнее о технологии CLEAR"
-      />
     </section>
   );
 }
