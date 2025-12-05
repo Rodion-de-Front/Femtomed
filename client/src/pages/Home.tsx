@@ -85,7 +85,7 @@ export default function Home() {
       image: "/images/clearCorneaBanner.png",
       excerpt: "Обзор на XIII съезд офтальмологов России",
       category: "Обзоры",
-      url: "https://femtomed.ru/wp-content/uploads/2024/10/%D0%98%D0%A2%D0%9E%D0%93%D0%9E%D0%92%D0%AB%D0%99-%D0%9E%D0%91%D0%97%D0%9E%D0%A0-CLEAR-CORNEA-CLUB-2024.pdf",
+      url: "/uploads/2024/10/%D0%98%D0%A2%D0%9E%D0%93%D0%9E%D0%92%D0%AB%D0%99-%D0%9E%D0%91%D0%97%D0%9E%D0%A0-CLEAR-CORNEA-CLUB-2024.pdf",
     },
     {
       id: "lazer-technologi-zimer",
@@ -96,7 +96,7 @@ export default function Home() {
       excerpt:
         "Обзор на Северо-Кавказский офтальмологический саммит при поддержке компаний Ziemer и Фемтомед",
       category: "Обзоры",
-      url: "https://femtomed.ru/wp-content/uploads/2023/09/%D0%9B%D0%B0%D0%B7%D0%B5%D1%80%D0%BD%D1%8B%D0%B5-%D1%82%D0%B5%D1%85%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D0%B8-Ziemer.pdf",
+      url: "/uploads/2023/09/%D0%9B%D0%B0%D0%B7%D0%B5%D1%80%D0%BD%D1%8B%D0%B5-%D1%82%D0%B5%D1%85%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D0%B8-Ziemer.pdf",
     },
     {
       id: "inovation-tech-zimer",
@@ -107,7 +107,7 @@ export default function Home() {
       excerpt:
         "Международная офтальмологическая конференция с участием ведущих специалистов",
       category: "Обзоры",
-      url: "https://femtomed.ru/wp-content/uploads/2024/01/%D0%98%D0%BD%D0%BD%D0%BE%D0%B2%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D1%8B%D0%B5-%D1%82%D0%B5%D1%85%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D0%B8-%D1%88%D0%B2%D0%B5%D0%B9%D1%86%D0%B0%D1%80%D1%81%D0%BA%D0%BE%D0%B9-%D0%BA%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D0%B8-ZIEMER.pdf",
+      url: "/uploads/2024/01/%D0%98%D0%BD%D0%BD%D0%BE%D0%B2%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D1%8B%D0%B5-%D1%82%D0%B5%D1%85%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D0%B8-%D1%88%D0%B2%D0%B5%D0%B9%D1%86%D0%B0%D1%80%D1%81%D0%BA%D0%BE%D0%B9-%D0%BA%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D0%B8-ZIEMER.pdf",
     },
   ];
 

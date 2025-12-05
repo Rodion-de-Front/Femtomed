@@ -22,7 +22,7 @@ export default function Blog() {
       image: "/images/clearCorneaBanner.png",
       excerpt: "Обзор на XIII съезд офтальмологов России",
       category: "Обзоры",
-      url: "https://femtomed.ru/wp-content/uploads/2024/10/%D0%98%D0%A2%D0%9E%D0%93%D0%9E%D0%92%D0%AB%D0%99-%D0%9E%D0%91%D0%97%D0%9E%D0%A0-CLEAR-CORNEA-CLUB-2024.pdf",
+      url: "/uploads/2024/10/%D0%98%D0%A2%D0%9E%D0%93%D0%9E%D0%92%D0%AB%D0%99-%D0%9E%D0%91%D0%97%D0%9E%D0%A0-CLEAR-CORNEA-CLUB-2024.pdf",
     },
     {
       id: "lazer-technologi-zimer",
@@ -33,7 +33,7 @@ export default function Blog() {
       excerpt:
         "Обзор на Северо-Кавказский офтальмологический саммит при поддержке компаний Ziemer и Фемтомед",
       category: "Обзоры",
-      url: "https://femtomed.ru/wp-content/uploads/2023/09/%D0%9B%D0%B0%D0%B7%D0%B5%D1%80%D0%BD%D1%8B%D0%B5-%D1%82%D0%B5%D1%85%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D0%B8-Ziemer.pdf",
+      url: "/uploads/2023/09/%D0%9B%D0%B0%D0%B7%D0%B5%D1%80%D0%BD%D1%8B%D0%B5-%D1%82%D0%B5%D1%85%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D0%B8-Ziemer.pdf",
     },
     {
       id: "inovation-tech-zimer",
@@ -44,7 +44,7 @@ export default function Blog() {
       excerpt:
         "Международная офтальмологическая конференция с участием ведущих специалистов",
       category: "Обзоры",
-      url: "https://femtomed.ru/wp-content/uploads/2024/01/%D0%98%D0%BD%D0%BD%D0%BE%D0%B2%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D1%8B%D0%B5-%D1%82%D0%B5%D1%85%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D0%B8-%D1%88%D0%B2%D0%B5%D0%B9%D1%86%D0%B0%D1%80%D1%81%D0%BA%D0%BE%D0%B9-%D0%BA%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D0%B8-ZIEMER.pdf",
+      url: "/uploads/2024/01/%D0%98%D0%BD%D0%BD%D0%BE%D0%B2%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D1%8B%D0%B5-%D1%82%D0%B5%D1%85%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D0%B8-%D1%88%D0%B2%D0%B5%D0%B9%D1%86%D0%B0%D1%80%D1%81%D0%BA%D0%BE%D0%B9-%D0%BA%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D0%B8-ZIEMER.pdf",
     },
     {
       id: "sravnenya-results-extra",
@@ -55,7 +55,7 @@ export default function Blog() {
       excerpt:
         "Ссравнительные результаты экстракции лентикулы роговицы на установке ziemer ldv z8 для коррекции миопии средней и высокой степени сиспользованием технологии FAST FLAP",
       category: "Статьи",
-      url: "https://femtomed.ru/wp-content/uploads/2024/09/%D0%A1%D1%82%D0%B0%D1%82%D1%8C%D1%8F-%D0%9A%D0%BE%D0%BF%D1%8B%D0%BB%D0%BE%D0%B2-%D0%9D%D0%B5%D0%BD%D0%B0%D1%88%D0%B5%D0%B2%D0%B0.pdf",
+      url: "/uploads/2024/09/%D0%A1%D1%82%D0%B0%D1%82%D1%8C%D1%8F-%D0%9A%D0%BE%D0%BF%D1%8B%D0%BB%D0%BE%D0%B2-%D0%9D%D0%B5%D0%BD%D0%B0%D1%88%D0%B5%D0%B2%D0%B0.pdf",
     },
     {
       id: "konferentsiya-vostok-zapad",
@@ -65,7 +65,7 @@ export default function Blog() {
       image: conferenceImage,
       excerpt: "Клинический опыт, отзывы и зрительные функции после операции",
       category: "Статьи",
-      url: "https://femtomed.ru/wp-content/uploads/2023/04/CLEAR_Femto_LDV_Z8.pdf",
+      url: "/uploads/2023/04/CLEAR_Femto_LDV_Z8.pdf",
     },
     {
       id: "konferentsiya-vostok-zapad",
@@ -75,7 +75,7 @@ export default function Blog() {
       image: conferenceImage,
       excerpt: "Клинический опыт, отзывы и зрительные функции после операции",
       category: "Статьи",
-      url: "https://femtomed.ru/wp-content/uploads/2023/04/CLEAR_Femto_LDV_Z8.pdf",
+      url: "/uploads/2023/04/CLEAR_Femto_LDV_Z8.pdf",
     },
     {
       id: "FEMTO-LDV-LASIK",
@@ -86,7 +86,7 @@ export default function Blog() {
       excerpt:
         "Low pulse energy flap creation results in significantly less post-op DLK",
       category: "Статьи",
-      url: "https://femtomed.ru/wp-content/uploads/2018/06/Z-Models_LASIK.pdf",
+      url: "/uploads/2018/06/Z-Models_LASIK.pdf",
     },
     {
       id: "FEMTO-LDV-LASIK",
@@ -97,7 +97,7 @@ export default function Blog() {
       excerpt:
         "Результатом создания лоскута при низком импульсе является существенно меньший послеоперационный диффузный ламеллярный кератит",
       category: "Статьи",
-      url: "https://femtomed.ru/wp-content/uploads/2018/06/Z-Models_LASIK_ru.pdf",
+      url: "/uploads/2018/06/Z-Models_LASIK_ru.pdf",
     },
     {
       id: "FEMTO-LDV-Z6",
@@ -108,7 +108,7 @@ export default function Blog() {
       excerpt:
         "Corneal cuts with a nJ-energy femto laser results in less cell death and reduced profibrotic markers",
       category: "Статьи",
-      url: "https://femtomed.ru/wp-content/uploads/2018/06/Z6_Pulse-Energy.pdf",
+      url: "/uploads/2018/06/Z6_Pulse-Energy.pdf",
     },
     {
       id: "FEMTO-LDV-Z6",
@@ -119,7 +119,7 @@ export default function Blog() {
       excerpt:
         "Результатом разреза роговицы фемтолазером с энергией в нДж стала меньшая гибель клеток и меньшее количество профибротических маркеров",
       category: "Статьи",
-      url: "https://femtomed.ru/wp-content/uploads/2018/06/Z6_Pulse-Energy_ru.pdf",
+      url: "/uploads/2018/06/Z6_Pulse-Energy_ru.pdf",
     },
     {
       id: "sravnenie-ruchnogo-i-femtolazernogo-formirovania-intra-stomalnogo-tunneley",
@@ -131,7 +131,7 @@ export default function Blog() {
       excerpt:
         "Сравнение ручного и фемтолазерного формирования интрастромального туннеля для введения воздуха при глубокой передней послойной кератопластике с фемтолазерным сопровождением",
       category: "Статьи",
-      url: "https://femtomed.ru/wp-content/uploads/2023/09/DALK.pdf",
+      url: "/uploads/2023/09/DALK.pdf",
     },
     {
       id: "femtosek-support",
@@ -142,7 +142,7 @@ export default function Blog() {
       excerpt:
         "Фемтосекундное сопровождение в комбинированном хирургическом лечении пролиферативной диабетической ретинопатии",
       category: "Статьи",
-      url: "https://femtomed.ru/wp-content/uploads/2018/06/st-100.pdf",
+      url: "/uploads/2018/06/st-100.pdf",
     },
     {
       id: "optimisation-energo-parametrs",
@@ -154,7 +154,7 @@ export default function Blog() {
       excerpt:
         "Оптимизация энергетических параметров фемтолазерного сопровождения хирургии катаракты на приборе Ziemer FEMTO LDV Z8 Калужский филиал ФГБУ «МНТК «Микрохирургия глаза» им. акад. С.Н. Федорова» Минздрава России",
       category: "Статьи",
-      url: "https://femtomed.ru/wp-content/uploads/2018/06/st-200.pdf",
+      url: "/uploads/2018/06/st-200.pdf",
     },
     {
       id: "FEMTO-LDV-Z8",
@@ -165,7 +165,7 @@ export default function Blog() {
       excerpt:
         "Efficient workflow and short learning curve for cataract surgery with FEMTO LDV Z8",
       category: "Статьи",
-      url: "https://femtomed.ru/wp-content/uploads/2018/06/Z8_Cataract.pdf",
+      url: "/uploads/2018/06/Z8_Cataract.pdf",
     },
     {
       id: "FEMTO-LDV-Z8",
@@ -176,7 +176,7 @@ export default function Blog() {
       excerpt:
         "Эффективный рабочий процесс и короткая кривая обучения для хирургических операций катаракты при помощи FEMTO LDV Z8",
       category: "Статьи",
-      url: "https://femtomed.ru/wp-content/uploads/2018/06/Z8_Cataract_ru.pdf",
+      url: "/uploads/2018/06/Z8_Cataract_ru.pdf",
     },
     {
       id: "GALILEI-two-channel-scheimpflug-camera",
@@ -186,7 +186,7 @@ export default function Blog() {
       image: conferenceImage,
       excerpt: "Показатели KPI и KProb могут помочь в диагностике кератоконуса",
       category: "Статьи",
-      url: "https://femtomed.ru/wp-content/uploads/2018/06/Galilei_rus.pdf",
+      url: "/uploads/2018/06/Galilei_rus.pdf",
     },
     {
       id: "GALILEI-two-channel-scheimpflug-camera",
@@ -197,7 +197,7 @@ export default function Blog() {
       excerpt:
         "Анализатор оптической системы глаза GALILEI позволяет рассчитать силу ИОЛ также точно, как и ИОЛ-мастер.",
       category: "Статьи",
-      url: "https://femtomed.ru/wp-content/uploads/2018/06/Galilei_IOL.pdf",
+      url: "/uploads/2018/06/Galilei_IOL.pdf",
     },
     {
       id: "users-advises",
@@ -208,7 +208,7 @@ export default function Blog() {
       excerpt:
         "Улучшайте качество своих исследований на анализаторе оптических сред глаза Galilei",
       category: "Статьи",
-      url: "https://femtomed.ru/wp-content/uploads/2018/06/Galilei_tips.pdf",
+      url: "/uploads/2018/06/Galilei_tips.pdf",
     },
     {
       id: "satellite-symposium",

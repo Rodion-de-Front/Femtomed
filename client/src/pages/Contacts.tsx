@@ -16,7 +16,6 @@ import {
   CreditCard,
   RefreshCw,
   Eye,
-  Award,
   CheckCircle2,
   ArrowRight,
 } from "lucide-react";
@@ -177,49 +176,53 @@ export default function Contacts() {
                 </Button>
               </Card>
 
-              <Card className="p-8 bg-gradient-to-br from-primary/10 via-primary/5 to-background border-primary/20 hover-elevate transition-all">
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="w-14 h-14 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0">
-                    <Award className="w-7 h-7 text-primary" />
+              <Link href="/vision-test">
+                <Card className="p-8 bg-gradient-to-br from-primary/10 via-primary/5 to-background border-primary/20 hover-elevate transition-all cursor-pointer">
+                  <div className="flex items-start gap-4 mb-6">
+                    <div className="w-14 h-14 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0">
+                      <Eye className="w-7 h-7 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold mb-2">
+                        Тест на зрение
+                      </h3>
+                      <p className="text-muted-foreground">
+                        Пройдите онлайн-тесты для проверки зрения
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-2xl font-bold mb-2">Сертификаты</h3>
-                    <p className="text-muted-foreground">
-                      Официальные документы и сертификаты качества
-                    </p>
-                  </div>
-                </div>
-                <ul className="space-y-3 mb-6">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                    <span className="text-muted-foreground">
-                      Сертификаты соответствия ГОСТ
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                    <span className="text-muted-foreground">
-                      Регистрационные удостоверения
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                    <span className="text-muted-foreground">
-                      Декларации соответствия
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                    <span className="text-muted-foreground">
-                      Международные сертификаты качества
-                    </span>
-                  </li>
-                </ul>
-                <Button variant="outline" className="w-full">
-                  Запросить сертификаты
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
-              </Card>
+                  <ul className="space-y-3 mb-6">
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span className="text-muted-foreground">
+                        Таблица Сивцева для проверки остроты зрения
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span className="text-muted-foreground">
+                        Тест Амслера для диагностики макулярной дегенерации
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span className="text-muted-foreground">
+                        Тест на астигматизм и другие проверки
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span className="text-muted-foreground">
+                        Комплексное тестирование зрения онлайн
+                      </span>
+                    </li>
+                  </ul>
+                  <Button variant="outline" className="w-full">
+                    Пройти тесты
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </Card>
+              </Link>
             </div>
           </div>
         </section>
@@ -539,28 +542,6 @@ export default function Contacts() {
                         </div>
                       </div>
                     </div>
-                  </div>
-                </Card>
-
-                <Card className="p-6 bg-muted/30 border-muted">
-                  <div className="flex items-center justify-between flex-wrap gap-4">
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                        <Eye className="w-6 h-6 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold mb-1">Тесты со зрением</h3>
-                        <p className="text-sm text-muted-foreground">
-                          Пройдите онлайн-тесты для проверки зрения
-                        </p>
-                      </div>
-                    </div>
-                    <Link href="/vision-test">
-                      <Button variant="outline" size="sm">
-                        Пройти тесты
-                        <ArrowRight className="w-4 h-4 ml-2" />
-                      </Button>
-                    </Link>
                   </div>
                 </Card>
               </div>
