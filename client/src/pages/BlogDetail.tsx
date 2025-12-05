@@ -125,7 +125,7 @@ const blogData: Record<
       "Межрегиональная научно-практическая конференция «Стукаловские чтения 2025. Современная офтальмология – единство науки и практики»",
     date: "15-16 декабря 2025",
     location: "Воронеж",
-    image: "/images/voroneg.png",
+    image: "/images/voroneg.jpg",
     category: "Новости",
     author: "Администрация",
     readingTime: 2,

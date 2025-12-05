@@ -29,6 +29,8 @@ const productData: Record<
     brochure: string;
     description: string;
     features: string[];
+    doctorBenefits?: string[];
+    patientBenefits?: string[];
     specifications?: {
       label: string;
       value: string;
@@ -52,6 +54,24 @@ const productData: Record<
       "Высокая точность позиционирования",
       "Быстрая процедура",
       "Минимальная инвазивность",
+    ],
+    doctorBenefits: [
+      "Концепция низкой энергии",
+      "Интраоперационный ОКТ",
+      "Программируемые разрезы",
+      "Поддержка CLEAR SUPRA технологии",
+      "Высокая точность позиционирования",
+      "Широкий спектр процедур",
+      "Интуитивный интерфейс управления",
+    ],
+    patientBenefits: [
+      "Быстрая процедура - 2-5 минут",
+      "Минимальная инвазивность",
+      "Быстрое восстановление",
+      "Безопасная технология с низкой энергией",
+      "Минимальный дискомфорт",
+      "Стабильные результаты",
+      "Высокая точность коррекции",
     ],
     specifications: [
       { label: "Длина волны", value: "1043 нм" },
@@ -91,6 +111,24 @@ const productData: Record<
       "Автоматическое сканирование",
       "Высокая точность измерений",
     ],
+    doctorBenefits: [
+      "Двойная система Scheimpflug",
+      "Топография роговицы",
+      "Пахиметрия",
+      "Анализ переднего сегмента",
+      "3D визуализация",
+      "Автоматическое сканирование",
+      "Высокая точность измерений",
+    ],
+    patientBenefits: [
+      "Быстрое и комфортное обследование - менее 2 секунд",
+      "Точная диагностика заболеваний",
+      "Высокое качество визуализации",
+      "Безопасное обследование",
+      "Комплексный анализ состояния глаз",
+      "Минимальное время диагностики",
+      "Точные результаты для эффективного лечения",
+    ],
     specifications: [
       { label: "Тип сканирования", value: "Scheimpflug камеры" },
       { label: "Разрешение", value: "Высокое разрешение" },
@@ -129,6 +167,24 @@ const productData: Record<
       "Быстрое восстановление",
       "Стабильные результаты",
     ],
+    doctorBenefits: [
+      "Эргономичный дизайн",
+      "Высокая точность",
+      "Бесшумная работа",
+      "Интуитивное управление",
+      "Широкий спектр коррекций",
+      "Надежная система",
+      "Простота использования",
+    ],
+    patientBenefits: [
+      "Быстрая процедура - 5-10 минут",
+      "Минимальная инвазивность",
+      "Быстрое восстановление",
+      "Стабильные результаты",
+      "Бесшумная работа",
+      "Минимальный дискомфорт",
+      "Эффективная коррекция зрения",
+    ],
     specifications: [
       { label: "Тип системы", value: "Рефракционная хирургия" },
       { label: "Точность", value: "Высокая" },
@@ -164,6 +220,24 @@ const productData: Record<
       "Централизованное управление",
       "Безопасное хранение",
       "Расширенная отчетность",
+    ],
+    doctorBenefits: [
+      "Интуитивный интерфейс",
+      "Интеграция с оборудованием",
+      "Планирование процедур",
+      "Анализ данных",
+      "Централизованное управление",
+      "Безопасное хранение",
+      "Расширенная отчетность",
+    ],
+    patientBenefits: [
+      "Быстрая обработка данных пациента",
+      "Точное ведение медицинской документации",
+      "Удобная запись на прием",
+      "Безопасное хранение медицинских данных",
+      "Эффективное планирование лечения",
+      "Интеграция всех данных в одном месте",
+      "Повышение качества обслуживания",
     ],
     specifications: [
       { label: "Тип", value: "Программное обеспечение" },
@@ -202,6 +276,24 @@ const productData: Record<
       "Быстрое восстановление",
       "Доказанная эффективность",
     ],
+    doctorBenefits: [
+      "Биосовместимый материал",
+      "Различные размеры для индивидуального подбора",
+      "Обратимая процедура",
+      "Простота установки",
+      "Широкий выбор конфигураций",
+      "Доказанная эффективность",
+      "Надежная система",
+    ],
+    patientBenefits: [
+      "Минимальная инвазивность",
+      "Быстрое восстановление",
+      "Стабильные результаты",
+      "Обратимая процедура",
+      "Безопасный биосовместимый материал",
+      "Эффективная коррекция кератоконуса",
+      "Улучшение зрения",
+    ],
     specifications: [
       { label: "Материал", value: "PMMA (полиметилметакрилат)" },
       { label: "Размеры", value: "Различные варианты" },
@@ -237,6 +329,24 @@ const productData: Record<
       "Минимальная инвазивность",
       "Стабильные результаты",
       "Быстрое восстановление",
+    ],
+    doctorBenefits: [
+      "Укрепление роговицы",
+      "Остановка прогрессирования кератоконуса",
+      "Безопасная процедура",
+      "Доказанная эффективность",
+      "Точная дозировка УФ-излучения",
+      "Контролируемый процесс",
+      "Золотой стандарт лечения",
+    ],
+    patientBenefits: [
+      "Остановка прогрессирования кератоконуса",
+      "Стабилизация состояния роговицы",
+      "Безопасная процедура",
+      "Минимальная инвазивность",
+      "Стабильные результаты",
+      "Быстрое восстановление",
+      "Возможность улучшения зрения",
     ],
     specifications: [
       { label: "Тип", value: "Кросслинкинг роговицы" },
@@ -391,31 +501,61 @@ export default function ProductDetail() {
           className="py-12 bg-muted/30"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Особенности */}
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              {/* Преимущества для врачей */}
               <Card className="p-8">
                 <h2 className="text-2xl font-bold mb-6">
-                  Основные особенности
+                  Преимущества для врачей
                 </h2>
                 <div className="space-y-3">
-                  {product.features.map((feature, idx) => (
-                    <div
-                      key={idx}
-                      className="flex items-start gap-3 p-3 rounded-lg hover-elevate transition-all"
-                    >
-                      <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Check className="w-3 h-3 text-primary" />
+                  {(product.doctorBenefits || product.features).map(
+                    (benefit, idx) => (
+                      <div
+                        key={idx}
+                        className="flex items-start gap-3 p-3 rounded-lg hover-elevate transition-all"
+                      >
+                        <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <Check className="w-3 h-3 text-primary" />
+                        </div>
+                        <span className="text-sm leading-relaxed">
+                          {benefit}
+                        </span>
                       </div>
-                      <span className="text-sm leading-relaxed">{feature}</span>
-                    </div>
-                  ))}
+                    )
+                  )}
                 </div>
               </Card>
 
-              {/* Технические характеристики */}
-              {product.specifications && (
+              {/* Преимущества для пациентов */}
+              {product.patientBenefits && (
                 <Card className="p-8">
                   <h2 className="text-2xl font-bold mb-6">
+                    Преимущества для пациентов
+                  </h2>
+                  <div className="space-y-3">
+                    {product.patientBenefits.map((benefit, idx) => (
+                      <div
+                        key={idx}
+                        className="flex items-start gap-3 p-3 rounded-lg hover-elevate transition-all"
+                      >
+                        <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <Check className="w-3 h-3 text-primary" />
+                        </div>
+                        <span className="text-sm leading-relaxed">
+                          {benefit}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </Card>
+              )}
+            </div>
+
+            {/* Технические характеристики */}
+            {product.specifications && (
+              <div className="flex justify-center">
+                <Card className="p-8 max-w-2xl w-full">
+                  <h2 className="text-2xl font-bold mb-6 text-center">
                     Технические характеристики
                   </h2>
                   <div className="space-y-4">
@@ -434,8 +574,8 @@ export default function ProductDetail() {
                     ))}
                   </div>
                 </Card>
-              )}
-            </div>
+              </div>
+            )}
           </div>
         </div>
 

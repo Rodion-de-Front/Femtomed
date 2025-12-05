@@ -241,52 +241,105 @@ export default function Contacts() {
                   </h3>
                   <p className="text-lg text-muted-foreground mb-6">
                     Приобретайте современное офтальмологическое оборудование с
-                    гибкими условиями финансирования
+                    гибкими условиями финансирования от нашего партнера{" "}
+                    <a
+                      href="https://pt-med.ru/clients/lizing/?ysclid=miq25j792j845172461"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline font-semibold"
+                    >
+                      Physiotechnica
+                    </a>
                   </p>
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-3 gap-6 mb-8">
-                <Card className="p-6 bg-background/50">
-                  <div className="text-3xl font-bold text-primary mb-2">
-                    от 0%
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    Первоначальный взнос
-                  </div>
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                {/* Частные клиники */}
+                <Card className="p-6 bg-background/50 border-primary/20">
+                  <h4 className="text-xl font-semibold mb-4">
+                    Для частных клиник
+                  </h4>
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <div>
+                        <div className="font-medium mb-1">Аванс от 10%</div>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <div>
+                        <div className="font-medium mb-1">
+                          Срок лизинга от 1 года до 7 лет
+                        </div>
+                        <div className="text-sm text-muted-foreground">
+                          Возможность досрочного погашения
+                        </div>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <div>
+                        <div className="font-medium mb-1">
+                          Финансирование стартапа без лицензии
+                        </div>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <div>
+                        <div className="font-medium mb-1">
+                          Работаем по всей РФ
+                        </div>
+                        <div className="text-sm text-muted-foreground">
+                          Крым в том числе + пробные сделки по новым регионам
+                        </div>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <div>
+                        <div className="font-medium mb-1">
+                          Срок рассмотрения сделки от 1 дня
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
                 </Card>
-                <Card className="p-6 bg-background/50">
-                  <div className="text-3xl font-bold text-primary mb-2">
-                    до 60
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    Месяцев рассрочки
-                  </div>
-                </Card>
-                <Card className="p-6 bg-background/50">
-                  <div className="text-3xl font-bold text-primary mb-2">
-                    Быстро
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    Рассмотрение заявки
-                  </div>
+
+                {/* Гос. клиники */}
+                <Card className="p-6 bg-background/50 border-primary/20">
+                  <h4 className="text-xl font-semibold mb-4">
+                    Для государственных клиник
+                  </h4>
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <div>
+                        <div className="font-medium mb-1">Аванс от 0%</div>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <div>
+                        <div className="font-medium mb-1">
+                          Индивидуальный график платежей
+                        </div>
+                        <div className="text-sm text-muted-foreground">
+                          Гибкие условия под ваши потребности
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
                 </Card>
               </div>
 
               <div className="space-y-4 mb-8">
-                <h4 className="text-xl font-semibold">Преимущества:</h4>
+                <h4 className="text-xl font-semibold">
+                  Дополнительные преимущества:
+                </h4>
                 <div className="grid md:grid-cols-2 gap-4">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                    <div>
-                      <div className="font-medium mb-1">
-                        Гибкие условия оплаты
-                      </div>
-                      <div className="text-sm text-muted-foreground">
-                        Индивидуальный график платежей
-                      </div>
-                    </div>
-                  </div>
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                     <div>
@@ -301,28 +354,51 @@ export default function Contacts() {
                     <div>
                       <div className="font-medium mb-1">Быстрое оформление</div>
                       <div className="text-sm text-muted-foreground">
-                        Решение в течение 1-2 дней
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                    <div>
-                      <div className="font-medium mb-1">
-                        Работа с ведущими банками
-                      </div>
-                      <div className="text-sm text-muted-foreground">
-                        Проверенные партнеры
+                        Решение в течение 1 дня
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <Button size="lg" className="w-full sm:w-auto">
-                Оставить заявку на лизинг
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button
+                  size="lg"
+                  className="w-full sm:w-auto"
+                  onClick={() =>
+                    window.open(
+                      "https://pt-med.ru/clients/lizing/?ysclid=miq25j792j845172461",
+                      "_blank",
+                      "noopener,noreferrer"
+                    )
+                  }
+                >
+                  Оставить заявку на лизинг
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="w-full sm:w-auto"
+                  onClick={() => {
+                    const formElement =
+                      formRef.current || document.getElementById("form");
+                    if (formElement) {
+                      const headerOffset = 100;
+                      const elementPosition =
+                        formElement.getBoundingClientRect().top;
+                      const offsetPosition =
+                        elementPosition + window.pageYOffset - headerOffset;
+                      window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth",
+                      });
+                    }
+                  }}
+                >
+                  Связаться с нами
+                </Button>
+              </div>
             </Card>
           </div>
         </section>

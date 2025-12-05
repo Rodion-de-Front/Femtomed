@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Check, ArrowRight } from "lucide-react";
 
 export default function FLOWSUITESection() {
-  const benefits = [
+  const doctorBenefits = [
     "Комплексное управление рабочими процессами",
     "Автоматизация рутинных операций",
     "Централизованное управление данными",
@@ -13,21 +13,31 @@ export default function FLOWSUITESection() {
     "Масштабируемая архитектура",
   ];
 
+  const patientBenefits = [
+    "Быстрая обработка данных пациента",
+    "Точное ведение медицинской документации",
+    "Удобная запись на прием",
+    "Безопасное хранение медицинских данных",
+    "Эффективное планирование лечения",
+    "Интеграция всех данных в одном месте",
+    "Повышение качества обслуживания",
+  ];
+
   return (
     <section
       className="py-24 bg-gradient-to-b from-background to-muted/30"
       data-testid="section-flow-suite"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
           <Card className="p-8 space-y-6">
-            <h3 className="text-2xl font-bold">Преимущества технологии</h3>
+            <h3 className="text-2xl font-bold">Преимущества для врачей</h3>
             <div className="space-y-3">
-              {benefits.map((benefit, idx) => (
+              {doctorBenefits.map((benefit, idx) => (
                 <div
                   key={idx}
                   className="flex items-start gap-3 p-3 rounded-lg hover-elevate transition-all duration-500 hover:scale-105 cursor-pointer animate-in fade-in slide-in-from-left"
-                  data-testid={`item-benefit-${idx}`}
+                  data-testid={`item-benefit-doctor-${idx}`}
                   style={{ animationDelay: `${idx * 100}ms` }}
                 >
                   <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:scale-125 group-hover:bg-primary/20 transition-all duration-300">
@@ -39,18 +49,39 @@ export default function FLOWSUITESection() {
             </div>
           </Card>
 
-          <div className="space-y-6">
+          <Card className="p-8 space-y-6">
+            <h3 className="text-2xl font-bold">Преимущества для пациентов</h3>
+            <div className="space-y-3">
+              {patientBenefits.map((benefit, idx) => (
+                <div
+                  key={idx}
+                  className="flex items-start gap-3 p-3 rounded-lg hover-elevate transition-all duration-500 hover:scale-105 cursor-pointer animate-in fade-in slide-in-from-left"
+                  data-testid={`item-benefit-patient-${idx}`}
+                  style={{ animationDelay: `${idx * 100}ms` }}
+                >
+                  <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:scale-125 group-hover:bg-primary/20 transition-all duration-300">
+                    <Check className="w-3 h-3 text-primary" />
+                  </div>
+                  <span className="text-sm leading-relaxed">{benefit}</span>
+                </div>
+              ))}
+            </div>
+          </Card>
+        </div>
+
+        <div className="mt-12 flex justify-center">
+          <div className="space-y-6 max-w-2xl w-full">
             <Card className="p-8 bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20">
               <div className="space-y-4">
-                <h3 className="text-2xl font-bold">
+                <h3 className="text-2xl font-bold text-center">
                   Универсальная система управления
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed text-center">
                   FLOW SUITE - это комплексная платформа для управления всеми
                   аспектами работы офтальмологической клиники, от планирования
                   до отчетности
                 </p>
-                <div className="pt-4">
+                <div className="pt-4 flex justify-center">
                   <Button
                     className="group"
                     data-testid="button-flow-suite-details"

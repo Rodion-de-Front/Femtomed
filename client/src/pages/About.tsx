@@ -18,6 +18,7 @@ import {
   MapPin,
   Eye,
   ArrowRight,
+  Home,
 } from "lucide-react";
 
 export default function About() {
@@ -62,9 +63,9 @@ export default function About() {
       delay: "200ms",
     },
     {
-      icon: ShoppingCart,
-      value: "1700+",
-      label: "Продано лазеров ZIEMER",
+      icon: Home,
+      value: "100+",
+      label: "Клиник в России с оборудованием ZIEMER",
       delay: "200ms",
     },
   ];

@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Check, ArrowRight } from "lucide-react";
 
 export default function CLEARSection() {
-  const benefits = [
+  const doctorBenefits = [
     "Возможность изменения позиции лентикулы после докинга",
     "Надежный вакуум, известный в системах Ziemer",
     "Направляющие тоннели для более легкого отделения лентикулы",
@@ -13,21 +13,31 @@ export default function CLEARSection() {
     "Концепция низкой энергии FEMTO LDV",
   ];
 
+  const patientBenefits = [
+    "Быстрая процедура - минимальное время операции",
+    "Минимальная инвазивность - без создания лоскута",
+    "Быстрое восстановление зрения",
+    "Стабильные долгосрочные результаты",
+    "Минимальный дискомфорт во время и после процедуры",
+    "Безопасная технология с низкой энергией",
+    "Возможность коррекции близорукости и астигматизма",
+  ];
+
   return (
     <section
       className="py-24 bg-gradient-to-b from-background to-muted/30"
       data-testid="section-clear"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
           <Card className="p-8 space-y-6">
-            <h3 className="text-2xl font-bold">Преимущества технологии</h3>
+            <h3 className="text-2xl font-bold">Преимущества для врачей</h3>
             <div className="space-y-3">
-              {benefits.map((benefit, idx) => (
+              {doctorBenefits.map((benefit, idx) => (
                 <div
                   key={idx}
                   className="flex items-start gap-3 p-3 rounded-lg hover-elevate transition-all duration-500 hover:scale-105 cursor-pointer animate-in fade-in slide-in-from-left"
-                  data-testid={`item-benefit-${idx}`}
+                  data-testid={`item-benefit-doctor-${idx}`}
                   style={{ animationDelay: `${idx * 100}ms` }}
                 >
                   <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:scale-125 group-hover:bg-primary/20 transition-all duration-300">
@@ -39,18 +49,39 @@ export default function CLEARSection() {
             </div>
           </Card>
 
-          <div className="space-y-6">
+          <Card className="p-8 space-y-6">
+            <h3 className="text-2xl font-bold">Преимущества для пациентов</h3>
+            <div className="space-y-3">
+              {patientBenefits.map((benefit, idx) => (
+                <div
+                  key={idx}
+                  className="flex items-start gap-3 p-3 rounded-lg hover-elevate transition-all duration-500 hover:scale-105 cursor-pointer animate-in fade-in slide-in-from-left"
+                  data-testid={`item-benefit-patient-${idx}`}
+                  style={{ animationDelay: `${idx * 100}ms` }}
+                >
+                  <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:scale-125 group-hover:bg-primary/20 transition-all duration-300">
+                    <Check className="w-3 h-3 text-primary" />
+                  </div>
+                  <span className="text-sm leading-relaxed">{benefit}</span>
+                </div>
+              ))}
+            </div>
+          </Card>
+        </div>
+
+        <div className="mt-12 flex justify-center">
+          <div className="space-y-6 max-w-2xl w-full">
             <Card className="p-8 bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20">
               <div className="space-y-4">
-                <h3 className="text-2xl font-bold">
+                <h3 className="text-2xl font-bold text-center">
                   Интегрированная платформа
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed text-center">
                   CLEAR-SUPRA является интегрированной частью платформы FEMTO
                   LDV Z8 и может быть приобретена путем обновления программного
                   обеспечения
                 </p>
-                <div className="pt-4">
+                <div className="pt-4 flex justify-center">
                   <Button
                     className="group"
                     data-testid="button-clear-details"
